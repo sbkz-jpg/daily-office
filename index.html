@@ -75,6 +75,8 @@
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 3px solid white;
+            display: block;
+            margin: 0 auto;
         }
 
         .art-caption {
@@ -247,6 +249,101 @@
             margin: 15px 0;
             border-radius: 8px;
             color: #742a2a;
+        }
+
+        /* DARK MODE */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            }
+
+            .container {
+                background: #2d3748;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #1a202c 0%, #0d1117 100%);
+            }
+
+            .daily-art-container {
+                background: linear-gradient(to bottom, #374151 0%, #2d3748 100%);
+                border-bottom: 3px solid #4a5568;
+            }
+
+            .art-caption {
+                color: #e2e8f0;
+            }
+
+            .nav-buttons {
+                background: #1f2937;
+                border-bottom: 1px solid #374151;
+            }
+
+            .content {
+                background: #2d3748;
+            }
+
+            .section-title {
+                color: #e2e8f0;
+                border-bottom: 2px solid #4a5568;
+            }
+
+            .prayer-text {
+                color: #cbd5e0;
+            }
+
+            .response {
+                color: #a0aec0;
+            }
+
+            .psalm {
+                background: #374151;
+                border-left: 4px solid #818cf8;
+            }
+
+            .scripture-reading {
+                background: #374151;
+                border-left: 4px solid #fbbf24;
+            }
+
+            .reading-reference {
+                color: #fbbf24;
+            }
+
+            .scripture-text {
+                color: #e2e8f0;
+            }
+
+            .verse-number {
+                color: #9ca3af;
+            }
+
+            .loading {
+                color: #9ca3af;
+            }
+
+            .silence-note {
+                color: #a0aec0;
+                background: #374151;
+            }
+
+            .canticle {
+                background: #374151;
+            }
+
+            .canticle-title {
+                color: #fbbf24;
+            }
+
+            .instruction {
+                color: #fbbf24;
+            }
+
+            .error {
+                background: #7f1d1d;
+                border-left: 4px solid #dc2626;
+                color: #fca5a5;
+            }
         }
     </style>
 </head>
@@ -563,61 +660,61 @@
             }
         };
 
-        // Enhanced religious art - rotates daily based on day of week
+        // Enhanced religious art - using more reliable CDN sources
         const artByTheme = {
             'advent_hope': [
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 0 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 2 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg/400px-El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg', caption: 'The Annunciation - El Greco (1576)', day: 3 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/John_the_Baptist_by_Leonardo_da_Vinci.jpg/400px-John_the_Baptist_by_Leonardo_da_Vinci.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 5 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 6 }
+                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 0 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 2 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg', caption: 'The Annunciation - El Greco (1576)', day: 3 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1524.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 5 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 6 }
             ],
             'advent_preparation': [
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/John_the_Baptist_by_Leonardo_da_Vinci.jpg/400px-John_the_Baptist_by_Leonardo_da_Vinci.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 0 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 1 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 2 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 3 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg/400px-Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg', caption: 'Crucifixion - Duccio (1311)', day: 4 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 5 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1524.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 0 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 1 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 2 },
+                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 3 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'Crucifixion - Duccio (1311)', day: 4 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 5 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
             ],
             'advent_joy': [
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 0 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 2 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 3 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 4 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 5 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg/400px-El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 0 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
+                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 2 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 3 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 4 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 5 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
             ],
             'advent_visitation': [
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg/400px-Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg', caption: 'The Visitation - Albertinelli (1503)', day: 0 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 2 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 5 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg/400px-El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'The Visitation - Albertinelli (1503)', day: 0 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 2 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
+                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 5 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
             ],
             'christmas_nativity': [
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg/400px-Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg', caption: 'The Nativity - Duccio (1311)', day: 0 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 1 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 2 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg/400px-Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg', caption: 'The Nativity - Duccio (1311)', day: 4 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 5 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 6 }
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'The Nativity - Duccio (1311)', day: 0 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 1 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 2 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'The Nativity - Duccio (1311)', day: 4 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 5 },
+                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 6 }
             ],
             'ordinary_faithfulness': [
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rembrandt_Harmensz._van_Rijn_038.jpg/400px-Rembrandt_Harmensz._van_Rijn_038.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 0 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 1 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg/400px-Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg', caption: 'Crucifixion - Duccio (1311)', day: 2 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 3 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rembrandt_Harmensz._van_Rijn_038.jpg/400px-Rembrandt_Harmensz._van_Rijn_038.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 4 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 5 },
-                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 0 },
+                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 1 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'Crucifixion - Duccio (1311)', day: 2 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 3 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 4 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 5 },
+                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
             ]
         };
 
@@ -821,22 +918,24 @@
             
             // Try to load the image
             dailyArtImg.onerror = function() {
-                console.log('Image failed to load, using decorative cross');
-                // Replace with decorative cross SVG
-                this.outerHTML = `
-                    <svg class="daily-art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="crossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#8b7355;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#5a4a3a;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect width="200" height="200" fill="#f5f1e8"/>
-                        <rect x="85" y="30" width="30" height="140" rx="3" fill="url(#crossGrad)"/>
-                        <rect x="30" y="85" width="140" height="30" rx="3" fill="url(#crossGrad)"/>
-                        <circle cx="100" cy="100" r="15" fill="#f5f1e8" opacity="0.3"/>
-                    </svg>
-                `;
+                console.log('Image failed to load, using St Giles Cathedral');
+                // Fallback to St Giles Cathedral from Unsplash (more reliable CDN)
+                this.src = 'https://images.unsplash.com/photo-1580669396919-bc188bd64c68?w=400&q=80';
+                artCaption.textContent = "St Giles' Cathedral, Edinburgh - The High Kirk of Scotland";
+                
+                // If even this fails, use a text-based fallback
+                this.onerror = function() {
+                    this.outerHTML = `
+                        <div class="daily-art" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 1.2rem; text-align: center; padding: 40px;">
+                            <div>
+                                <div style="font-size: 3rem; margin-bottom: 10px;">✝</div>
+                                <div>Daily Office</div>
+                                <div style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">Presbyterian Church (USA)</div>
+                            </div>
+                        </div>
+                    `;
+                    artCaption.textContent = "Book of Common Worship";
+                };
             };
             
             // Set image source
