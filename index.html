@@ -667,62 +667,124 @@
             }
         };
 
-        // Enhanced religious art - using more reliable CDN sources
-        const artByTheme = {
-            'advent_hope': [
-                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 0 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 2 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg', caption: 'The Annunciation - El Greco (1576)', day: 3 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1524.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 5 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 6 }
-            ],
-            'advent_preparation': [
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1524.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 0 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 1 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 2 },
-                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 3 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'Crucifixion - Duccio (1311)', day: 4 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 5 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
-            ],
-            'advent_joy': [
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 0 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
-                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 2 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 3 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 4 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 5 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
-            ],
-            'advent_visitation': [
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'The Visitation - Albertinelli (1503)', day: 0 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 2 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
-                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 5 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
-            ],
-            'christmas_nativity': [
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'The Nativity - Duccio (1311)', day: 0 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 1 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1951.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 2 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'The Nativity - Duccio (1311)', day: 4 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 5 },
-                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 6 }
-            ],
-            'ordinary_faithfulness': [
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 0 },
-                { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 1 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg', caption: 'Crucifixion - Duccio (1311)', day: 2 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 3 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 4 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 5 },
-                { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
-            ]
+        // Enhanced art collections organized by time of day and liturgical season
+        const artByTimeAndSeason = {
+            morning: {
+                advent: [
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain sunrise
+                    { url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80' }, // Morning landscape
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Annunciation
+                    { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' }, // Scottish Highlands dawn
+                    { url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80' }, // Misty morning
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity icon
+                    { url: 'https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&q=80' }  // Morning light
+                ],
+                christmas: [
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=80' }, // Winter morning
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Adoration
+                    { url: 'https://images.unsplash.com/photo-1483982258113-b72862e6cff6?w=800&q=80' }, // Snowy morning
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' }, // Madonna
+                    { url: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?w=800&q=80' }, // Winter sunrise
+                    { url: 'https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?w=800&q=80' }  // Frosty dawn
+                ],
+                ordinary: [
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain sunrise
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Rembrandt
+                    { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' }, // Scottish morning
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity
+                    { url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80' }, // Green hills dawn
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Annunciation
+                    { url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80' }  // Peaceful morning
+                ]
+            },
+            midday: {
+                advent: [
+                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' }, // Edinburgh
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Fra Angelico
+                    { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80' }, // Scottish loch
+                    { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' }, // Isle of Skye
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg' }, // El Greco
+                    { url: 'https://images.unsplash.com/photo-1504392022767-a8fc0771f239?w=800&q=80' }, // Stone church
+                    { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' }  // Scottish countryside
+                ],
+                christmas: [
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=800&q=80' }, // Snow cathedral
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Giotto
+                    { url: 'https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800&q=80' }, // Winter church
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' }, // Botticelli
+                    { url: 'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=80' }, // Snowy landscape
+                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' }  // Edinburgh winter
+                ],
+                ordinary: [
+                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' }, // Edinburgh
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Apostle Paul
+                    { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' }, // Scottish countryside
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity
+                    { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80' }, // Scottish loch
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Fra Angelico
+                    { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' }  // Isle of Skye
+                ]
+            },
+            evening: {
+                advent: [
+                    { url: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80' }, // Sunset sky
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Giotto Adoration
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain sunset
+                    { url: 'https://images.unsplash.com/photo-1472120435266-53107fd0c44a?w=800&q=80' }, // Golden hour church
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Annunciation
+                    { url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' }, // Dusk landscape
+                    { url: 'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=800&q=80' }  // Evening sky
+                ],
+                christmas: [
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&q=80' }, // Winter evening
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Adoration
+                    { url: 'https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=800&q=80' }, // Snowy dusk
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' }, // Madonna
+                    { url: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?w=800&q=80' }, // Sunset winter
+                    { url: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80' }  // Evening glow
+                ],
+                ordinary: [
+                    { url: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80' }, // Sunset
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Rembrandt
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain dusk
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Crucifixion
+                    { url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' }, // Golden landscape
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity
+                    { url: 'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=800&q=80' }  // Evening sky
+                ]
+            },
+            night: {
+                advent: [
+                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' }, // Starry night
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity icon
+                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' }, // Night sky
+                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' }, // Moonlit church
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Fra Angelico
+                    { url: 'https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?w=800&q=80' }, // Night landscape
+                    { url: 'https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?w=800&q=80' }  // Stars
+                ],
+                christmas: [
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&q=80' }, // Winter night
+                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' }, // Starry winter
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Adoration
+                    { url: 'https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=800&q=80' }, // Snowy night
+                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' }, // Church at night
+                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' }  // Night stars
+                ],
+                ordinary: [
+                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' }, // Starry sky
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity icon
+                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' }, // Night sky
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Crucifixion
+                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' }, // Moonlit scene
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Rembrandt
+                    { url: 'https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?w=800&q=80' }  // Peaceful night
+                ]
+            }
         };
 
         const liturgicalData = {
@@ -909,26 +971,42 @@
             `;
         }
 
+        function getTimeOfDay() {
+            const hour = new Date().getHours();
+            if (hour >= 5 && hour < 11) return 'morning';      // 5am-11am
+            if (hour >= 11 && hour < 15) return 'midday';      // 11am-3pm
+            if (hour >= 15 && hour < 20) return 'evening';     // 3pm-8pm
+            return 'night';                                      // 8pm-5am
+        }
+
+        function getSimplifiedSeason(season) {
+            if (season === 'advent') return 'advent';
+            if (season === 'christmas') return 'christmas';
+            return 'ordinary'; // Default for epiphany, lent, easter, pentecost, ordinary
+        }
+
         function loadDailyArt() {
-            const lectionary = getTodaysLectionary();
+            const season = getCurrentSeason();
+            const simplifiedSeason = getSimplifiedSeason(season);
+            const timeOfDay = getTimeOfDay();
             const dayOfWeek = getDayOfWeek();
-            const theme = lectionary.theme;
             
-            const artArray = artByTheme[theme] || artByTheme['ordinary_faithfulness'];
-            const artData = artArray.find(art => art.day === dayOfWeek) || artArray[0];
+            // Get art array for current time of day and season
+            const artArray = artByTimeAndSeason[timeOfDay][simplifiedSeason];
+            const artData = artArray[dayOfWeek % artArray.length];
             
             const dailyArtImg = document.getElementById('daily-art');
             const artLink = document.getElementById('art-link');
             
-            // Create fallback handler with Scottish landscapes and contemplative scenes
+            // Create fallback handler
             let attemptCount = 0;
             const fallbackImages = [
                 // Scottish Highland landscapes and religious sites
-                { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=400&q=80' },
-                { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=400&q=80' },
-                { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=400&q=80' },
-                { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=400&q=80' },
-                { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=400&q=80' }
+                { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' },
+                { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' },
+                { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' },
+                { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' },
+                { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80' }
             ];
             
             dailyArtImg.onerror = function() {
@@ -983,6 +1061,10 @@
 
             loadDailyArt();
 
+            // Auto-select office based on time of day
+            const timeOfDay = getTimeOfDay();
+            showOffice(timeOfDay);
+
             await loadMorningReadings();
             await loadPsalm(morningPsalms[dayIndex], 'morning-psalm-container');
             await loadPsalm(eveningPsalms[dayIndex], 'evening-psalm-container');
@@ -1002,7 +1084,19 @@
             });
 
             document.getElementById(office).classList.add('active');
-            event.target.classList.add('active');
+            
+            // Find and activate the correct button
+            const buttons = {
+                'morning': document.querySelector('.morning'),
+                'midday': document.querySelector('.midday'),
+                'evening': document.querySelector('.evening'),
+                'night': document.querySelector('.night')
+            };
+            
+            if (buttons[office]) {
+                buttons[office].classList.add('active');
+            }
+            
             document.querySelector('.content').scrollTop = 0;
         }
 
