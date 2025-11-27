@@ -12,137 +12,261 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Garamond', 'Georgia', serif;
+            background: #f5f1e8;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 700px;
             margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: #fdfcfa;
+            border: 1px solid #d4c5a9;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
-            color: white;
-            padding: 30px;
+            background: #5a4a3a;
+            color: #f5f1e8;
+            padding: 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-art {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
+            border-bottom: 3px solid #8b7355;
         }
 
         .header h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .liturgical-info {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.9;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .season-badge {
             display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 10px;
-            font-weight: bold;
+            padding: 4px 12px;
+            border: 1px solid #f5f1e8;
+            font-size: 0.75rem;
+            margin-top: 8px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .daily-art-container {
             width: 100%;
-            height: 250px;
-            overflow: hidden;
-            position: relative;
+            padding: 20px;
+            background: #fdfcfa;
+            text-align: center;
+            border-bottom: 1px solid #d4c5a9;
         }
 
         .daily-art {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+            border: 2px solid #8b7355;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .art-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 10px;
-            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #5a4a3a;
+            font-size: 0.75rem;
             font-style: italic;
+        }
+
+        /* DARK MODE */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1612;
+            }
+
+            .container {
+                background: #2a2520;
+                border: 1px solid #3a3530;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            }
+
+            .header {
+                background: #3a3025;
+                color: #e8dcc8;
+                border-bottom: 3px solid #5a4a3a;
+            }
+
+            .season-badge {
+                border: 1px solid #e8dcc8;
+            }
+
+            .daily-art-container {
+                background: #2a2520;
+                border-bottom: 1px solid #3a3530;
+            }
+
+            .daily-art {
+                border: 2px solid #6a5a4a;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            .art-caption {
+                color: #c8bca8;
+            }
+
+            .content {
+                background: #2a2520;
+            }
+
+            .section-title {
+                color: #d8cbb8;
+                border-bottom: 1px solid #4a4035;
+            }
+
+            .prayer-text {
+                color: #c8bca8;
+            }
+
+            .response {
+                color: #a89878;
+            }
+
+            .psalm {
+                background: #353025;
+                border-left: 3px solid #6a5a4a;
+            }
+
+            .scripture-reading {
+                background: #302a20;
+                border-left: 3px solid #6a5a4a;
+            }
+
+            .reading-reference {
+                color: #d8cbb8;
+            }
+
+            .scripture-text {
+                color: #c8bca8;
+            }
+
+            .verse-number {
+                color: #8a7a6a;
+            }
+
+            .loading {
+                color: #8a7a6a;
+            }
+
+            .silence-note {
+                color: #a89878;
+                background: #353025;
+                border-top: 1px solid #4a4035;
+                border-bottom: 1px solid #4a4035;
+            }
+
+            .canticle {
+                background: #302a20;
+                border-left: 3px solid #6a5a4a;
+            }
+
+            .canticle-title {
+                color: #d8cbb8;
+            }
+
+            .instruction {
+                color: #8a7a6a;
+            }
+
+            .error {
+                background: #3a2520;
+                border-left: 3px solid #8a5a4a;
+                color: #c8bca8;
+            }
+
+            .nav-buttons {
+                background: #252018;
+                border-bottom: 1px solid #3a3530;
+            }
+
+            .nav-btn {
+                border: 1px solid #5a4a3a;
+                background: #2a2520;
+                color: #c8bca8;
+            }
+
+            .nav-btn:hover {
+                background: #353025;
+            }
+
+            .nav-btn.active {
+                background: #5a4a3a;
+                color: #e8dcc8;
+            }
+
+            .morning, .midday, .evening, .night {
+                background: #2a2520;
+                color: #c8bca8;
+            }
+
+            .morning.active, .midday.active, .evening.active, .night.active {
+                background: #5a4a3a;
+                color: #e8dcc8;
+            }
         }
 
         .nav-buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-            background: #f7fafc;
-            border-bottom: 1px solid #e2e8f0;
+            gap: 8px;
+            padding: 15px;
+            background: #ebe6dc;
+            border-bottom: 1px solid #d4c5a9;
         }
 
         .nav-btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
+            padding: 10px 20px;
+            border: 1px solid #8b7355;
+            background: #fdfcfa;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 500;
+            font-weight: normal;
+            color: #5a4a3a;
+            font-family: 'Garamond', 'Georgia', serif;
+            letter-spacing: 1px;
         }
 
         .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: #f5f1e8;
         }
 
         .nav-btn.active {
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            background: #8b7355;
+            color: #fdfcfa;
         }
 
-        .morning { background: #fef3c7; color: #92400e; }
-        .morning.active { background: #fbbf24; }
+        .morning, .midday, .evening, .night {
+            background: #fdfcfa;
+            color: #5a4a3a;
+        }
 
-        .midday { background: #dbeafe; color: #1e40af; }
-        .midday.active { background: #60a5fa; }
-
-        .evening { background: #fce7f3; color: #9f1239; }
-        .evening.active { background: #f472b6; }
-
-        .night { background: #e0e7ff; color: #3730a3; }
-        .night.active { background: #818cf8; }
+        .morning.active, .midday.active, .evening.active, .night.active {
+            background: #8b7355;
+            color: #fdfcfa;
+        }
 
         .content {
-            padding: 30px;
+            padding: 25px;
             max-height: 70vh;
             overflow-y: auto;
+            background: #fdfcfa;
         }
 
         .office-section {
@@ -155,120 +279,125 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .section-title {
-            font-size: 1.5rem;
-            color: #2d3748;
-            margin: 25px 0 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e2e8f0;
+            font-size: 1.3rem;
+            color: #5a4a3a;
+            margin: 20px 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #d4c5a9;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .prayer-text {
-            line-height: 1.8;
-            color: #4a5568;
-            margin: 15px 0;
-            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #3a3a3a;
+            margin: 12px 0;
+            font-size: 1rem;
         }
 
         .response {
             font-style: italic;
             margin-left: 20px;
-            color: #718096;
+            color: #6a5a4a;
         }
 
         .psalm {
-            background: #f7fafc;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #667eea;
+            background: #f5f1e8;
+            padding: 15px;
+            margin: 12px 0;
+            border-left: 3px solid #8b7355;
         }
 
         .scripture-reading {
-            background: #fffbeb;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #f59e0b;
+            background: #faf8f3;
+            padding: 15px;
+            margin: 12px 0;
+            border-left: 3px solid #8b7355;
         }
 
         .reading-reference {
             font-weight: bold;
-            color: #92400e;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            color: #5a4a3a;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .scripture-text {
-            line-height: 1.8;
-            margin-top: 10px;
-            color: #1a202c;
+            line-height: 1.9;
+            margin-top: 8px;
+            color: #2a2a2a;
         }
 
         .verse-number {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             vertical-align: super;
-            color: #718096;
+            color: #8b7355;
             margin-right: 3px;
         }
 
         .loading {
             text-align: center;
-            padding: 20px;
-            color: #718096;
+            padding: 15px;
+            color: #8b7355;
             font-style: italic;
         }
 
         .silence-note {
             text-align: center;
             font-style: italic;
-            color: #718096;
-            padding: 20px;
-            background: #f7fafc;
-            border-radius: 8px;
-            margin: 15px 0;
+            color: #6a5a4a;
+            padding: 15px;
+            background: #f5f1e8;
+            margin: 12px 0;
+            border-top: 1px solid #d4c5a9;
+            border-bottom: 1px solid #d4c5a9;
         }
 
         .canticle {
-            background: #fef3c7;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
+            background: #faf8f3;
+            padding: 15px;
+            margin: 12px 0;
             font-style: italic;
+            border-left: 3px solid #8b7355;
         }
 
         .canticle-title {
             font-weight: bold;
             font-style: normal;
-            margin-bottom: 10px;
-            color: #92400e;
+            margin-bottom: 8px;
+            color: #5a4a3a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
         }
 
         .instruction {
-            color: #e53e3e;
-            font-size: 0.9rem;
+            color: #8b7355;
+            font-size: 0.85rem;
             font-style: italic;
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
         .error {
-            background: #fed7d7;
-            border-left: 4px solid #e53e3e;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-            color: #742a2a;
+            background: #f5ebe8;
+            border-left: 3px solid #a65a4a;
+            padding: 12px;
+            margin: 12px 0;
+            color: #5a4a3a;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img id="header-art" class="header-art" src="" alt="">
             <div class="header-content">
                 <h1>Daily Office</h1>
                 <div class="liturgical-info">
@@ -611,31 +740,31 @@
             ordinary: "This is the day that the Lord has made; let us rejoice and be glad in it. - Psalm 118:24"
         };
 
-        // Art collections from public domain sources
+        // Religious art collections from public domain sources - icons and sacred art
         const artByTheme = {
             'Anticipation and Hope': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/800px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
-                caption: 'Wanderer above the Sea of Fog - Caspar David Friedrich (1818)'
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg',
+                caption: 'The Trinity - Andrei Rublev (1411)'
             },
             'Preparation': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/William_Holman_Hunt_-_The_Light_of_the_World.jpg/600px-William_Holman_Hunt_-_The_Light_of_the_World.jpg',
-                caption: 'The Light of the World - William Holman Hunt (1853)'
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/John_the_Baptist_by_Leonardo_da_Vinci.jpg/400px-John_the_Baptist_by_Leonardo_da_Vinci.jpg',
+                caption: 'John the Baptist - Leonardo da Vinci (1513-1516)'
             },
             'Joy': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/VanGogh-starry_night_ballance1.jpg/800px-VanGogh-starry_night_ballance1.jpg',
-                caption: 'The Starry Night - Vincent van Gogh (1889)'
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg',
+                caption: 'The Annunciation - Simone Martini (1333)'
             },
             'The Visitation': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg/600px-Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg',
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg/400px-Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg',
                 caption: 'The Visitation - Mariotto Albertinelli (1503)'
             },
             'The Word Made Flesh': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg/600px-Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg',
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg/400px-Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg',
                 caption: 'The Nativity - Duccio di Buoninsegna (1308-1311)'
             },
             'Gods Faithfulness': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/800px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-                caption: 'Starry Night - Vincent van Gogh (1889)'
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rembrandt_Harmensz._van_Rijn_038.jpg/400px-Rembrandt_Harmensz._van_Rijn_038.jpg',
+                caption: 'The Apostle Paul - Rembrandt (1633)'
             }
         };
 
@@ -654,15 +783,15 @@
 
         function getSeasonColor(season) {
             const colors = {
-                advent: '#6B46C1',
-                christmas: '#ECC94B',
-                epiphany: '#48BB78',
-                lent: '#805AD5',
-                easter: '#F6E05E',
-                pentecost: '#E53E3E',
-                ordinary: '#48BB78'
+                advent: '#6B5B95',
+                christmas: '#D4AF37',
+                epiphany: '#8B7355',
+                lent: '#6B5B95',
+                easter: '#D4AF37',
+                pentecost: '#8B4513',
+                ordinary: '#5a4a3a'
             };
-            return colors[season] || '#48BB78';
+            return colors[season] || '#5a4a3a';
         }
 
         function getTodaysLectionary() {
@@ -818,21 +947,15 @@
             const artData = artByTheme[lectionary.theme] || artByTheme['Gods Faithfulness'];
             
             const dailyArtImg = document.getElementById('daily-art');
-            const headerArtImg = document.getElementById('header-art');
             
-            // Add error handlers
+            // Add error handler
             dailyArtImg.onerror = function() {
                 console.log('Image failed to load, using fallback');
                 this.style.display = 'none';
                 document.getElementById('art-caption').textContent = 'Theme: ' + lectionary.theme;
             };
             
-            headerArtImg.onerror = function() {
-                this.style.display = 'none';
-            };
-            
             dailyArtImg.src = artData.url;
-            headerArtImg.src = artData.url;
             document.getElementById('art-caption').textContent = artData.caption;
         }
 
