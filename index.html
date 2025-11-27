@@ -640,23 +640,6 @@
                     <div class="loading">Loading today's contemplative prayer...</div>
                 </div>
 
-                <div class="prayer-text">
-                    <strong>Lectio Divina: Sacred Reading</strong>
-                    <p style="margin-bottom: 15px;">A contemplative way of reading Scripture in four movements:</p>
-                    
-                    <div style="margin-left: 20px; line-height: 2;">
-                        <p><strong>1. Lectio (Read)</strong> - Read the passage slowly, listening for a word or phrase that speaks to you</p>
-                        <p><strong>2. Meditatio (Meditate)</strong> - Reflect on the word or phrase. What does it mean for your life today?</p>
-                        <p><strong>3. Oratio (Pray)</strong> - Respond to God in prayer about what you've heard</p>
-                        <p><strong>4. Contemplatio (Contemplate)</strong> - Rest in God's presence in silence</p>
-                    </div>
-                </div>
-
-                <div class="scripture-reading" id="lectio-passage">
-                    <div class="reading-reference">Today's Lectio Divina Passage</div>
-                    <div class="loading">Loading Scripture...</div>
-                </div>
-
                 <div class="silence-note" style="padding: 30px;">
                     <p style="margin-bottom: 10px; font-size: 1.1rem;">Now enter into silence...</p>
                     <p style="font-size: 0.9rem;">Spend time with God in wordless prayer</p>
@@ -991,24 +974,6 @@
             "Be the eye of God dwelling with you,<br>The foot of Christ in guidance with you,<br>The shower of the Spirit pouring on you,<br>Richly and generously."
         ];
 
-        // Lectio Divina passages - short contemplative texts
-        const lectioPassages = [
-            'Psalm 46:10',
-            'Psalm 23',
-            'Psalm 139:1-6',
-            'John 15:1-5',
-            'Matthew 6:25-34',
-            'Romans 8:35-39',
-            '1 John 4:7-12',
-            'Philippians 4:4-7',
-            'Isaiah 40:28-31',
-            'John 14:27',
-            'Matthew 11:28-30',
-            'Psalm 62:1-8',
-            'Colossians 3:12-17',
-            'Ephesians 3:14-19'
-        ];
-
         const embeddedScripture = {
             'Jeremiah 33:14-16': `<span class="verse-number">14</span>The days are surely coming, says the Lord, when I will fulfill the promise I made to the house of Israel and the house of Judah. <span class="verse-number">15</span>In those days and at that time I will cause a righteous Branch to spring up for David; and he shall execute justice and righteousness in the land. <span class="verse-number">16</span>In those days Judah will be saved and Jerusalem will live in safety. And this is the name by which it will be called: "The Lord is our righteousness."`,
             'Psalm 25:1-10': `<span class="verse-number">1</span>To you, O Lord, I lift up my soul. <span class="verse-number">2</span>O my God, in you I trust; do not let me be put to shame; do not let my enemies exult over me. <span class="verse-number">3</span>Do not let those who wait for you be put to shame; let them be ashamed who are wantonly treacherous. <span class="verse-number">4</span>Make me to know your ways, O Lord; teach me your paths. <span class="verse-number">5</span>Lead me in your truth, and teach me, for you are the God of my salvation; for you I wait all day long. <span class="verse-number">6</span>Be mindful of your mercy, O Lord, and of your steadfast love, for they have been from of old. <span class="verse-number">7</span>Do not remember the sins of my youth or my transgressions; according to your steadfast love remember me, for your goodness' sake, O Lord! <span class="verse-number">8</span>Good and upright is the Lord; therefore he instructs sinners in the way. <span class="verse-number">9</span>He leads the humble in what is right, and teaches the humble his way. <span class="verse-number">10</span>All the paths of the Lord are steadfast love and faithfulness, for those who keep his covenant and his decrees.`,
@@ -1240,7 +1205,6 @@
             // Select prayers based on day of year
             const mysticPrayer = mysticPrayers[dayOfYear % mysticPrayers.length];
             const celticBlessing = celticBlessings[dayOfYear % celticBlessings.length];
-            const lectioPassage = lectioPassages[dayOfYear % lectioPassages.length];
             
             // Load daily mystic prayer
             document.getElementById('daily-mystic-prayer').innerHTML = `
@@ -1252,20 +1216,6 @@
             document.getElementById('celtic-blessing').innerHTML = `
                 <div class="canticle-title">Celtic Blessing</div>
                 <p>${celticBlessing}</p>
-            `;
-            
-            // Load Lectio Divina passage
-            loadLectioPassage(lectioPassage);
-        }
-
-        async function loadLectioPassage(reference) {
-            const reading = await fetchScripture(reference);
-            document.getElementById('lectio-passage').innerHTML = `
-                <div class="reading-reference">${reading.reference}</div>
-                <div class="scripture-text">${reading.text}</div>
-                <div class="instruction" style="margin-top: 15px;">
-                    Read this passage slowly four times, once for each movement of Lectio Divina
-                </div>
             `;
         }
 
