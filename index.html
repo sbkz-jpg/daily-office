@@ -77,14 +77,12 @@
             border: 3px solid white;
             display: block;
             margin: 0 auto;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .art-caption {
-            margin-top: 12px;
-            color: #2d3748;
-            font-size: 0.85rem;
-            font-style: italic;
-            font-weight: 500;
+        .daily-art:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
         .nav-buttons {
@@ -366,8 +364,9 @@
         </div>
 
         <div class="daily-art-container">
-            <img id="daily-art" class="daily-art" src="" alt="Daily meditation art">
-            <div class="art-caption" id="art-caption"></div>
+            <a id="art-link" href="" target="_blank" style="display: inline-block; cursor: pointer;">
+                <img id="daily-art" class="daily-art" src="" alt="Daily meditation art">
+            </a>
         </div>
 
         <div class="nav-buttons">
@@ -916,20 +915,17 @@
             const artData = artArray.find(art => art.day === dayOfWeek) || artArray[0];
             
             const dailyArtImg = document.getElementById('daily-art');
-            const artCaption = document.getElementById('art-caption');
-            
-            // Set caption first
-            artCaption.textContent = artData.caption;
+            const artLink = document.getElementById('art-link');
             
             // Create fallback handler with Scottish landscapes and contemplative scenes
             let attemptCount = 0;
             const fallbackImages = [
                 // Scottish Highland landscapes and religious sites
-                { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=400&q=80', caption: 'Scottish Highlands' },
-                { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=400&q=80', caption: 'Isle of Skye, Scotland' },
-                { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=400&q=80', caption: 'Scottish Countryside' },
-                { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=400&q=80', caption: 'Edinburgh, Scotland' },
-                { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=400&q=80', caption: 'Scottish Loch' }
+                { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=400&q=80' },
+                { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=400&q=80' },
+                { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=400&q=80' },
+                { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=400&q=80' },
+                { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=400&q=80' }
             ];
             
             dailyArtImg.onerror = function() {
@@ -939,12 +935,13 @@
                 if (attemptCount <= fallbackImages.length) {
                     // Try next fallback image
                     const fallback = fallbackImages[attemptCount - 1];
-                    console.log('Trying fallback: ' + fallback.caption);
+                    console.log('Trying fallback image');
                     this.src = fallback.url;
-                    artCaption.textContent = fallback.caption;
+                    artLink.href = fallback.url;
                 } else {
                     // All external sources failed - use embedded placeholder
                     console.log('All sources failed, using text placeholder');
+                    artLink.style.pointerEvents = 'none';
                     this.outerHTML = `
                         <div class="daily-art" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 1rem; text-align: center; padding: 40px; flex-direction: column;">
                             <div style="font-size: 4rem; margin-bottom: 15px;">⛪</div>
@@ -952,12 +949,12 @@
                             <div style="font-size: 0.9rem; opacity: 0.9; max-width: 200px; line-height: 1.4;">Presbyterian Church (USA)</div>
                         </div>
                     `;
-                    artCaption.textContent = "Book of Common Worship";
                 }
             };
             
-            // Try to load primary image
+            // Try to load primary image and set link
             dailyArtImg.src = artData.url;
+            artLink.href = artData.url;
         }
 
         async function initializePage() {
