@@ -61,28 +61,35 @@
 
         .daily-art-container {
             width: 100%;
-            padding: 25px;
+            height: 300px;
+            padding: 0;
             text-align: center;
             background: linear-gradient(to bottom, #f7fafc 0%, #edf2f7 100%);
             border-bottom: 3px solid #e2e8f0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #art-link {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         .daily-art {
-            max-width: 280px;
-            max-height: 280px;
-            width: auto;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 3px solid white;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            margin: 0 auto;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            transition: transform 0.3s;
         }
 
         .daily-art:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
         .nav-buttons {
@@ -266,10 +273,6 @@
             .daily-art-container {
                 background: linear-gradient(to bottom, #374151 0%, #2d3748 100%);
                 border-bottom: 3px solid #4a5568;
-            }
-
-            .art-caption {
-                color: #e2e8f0;
             }
 
             .nav-buttons {
