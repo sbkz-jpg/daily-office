@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Daily Office">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%235a4a3a'/><rect x='206' y='50' width='100' height='412' fill='%23f5f1e8' rx='10'/><rect x='50' y='206' width='412' height='100' fill='%23f5f1e8' rx='10'/></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%235a4a3a'/><rect x='40' y='10' width='20' height='80' fill='%23f5f1e8' rx='2'/><rect x='10' y='40' width='80' height='20' fill='%23f5f1e8' rx='2'/></svg>">
     <title>Daily Office - PCUSA</title>
     <style>
         * {
@@ -12,261 +17,117 @@
         }
 
         body {
-            font-family: 'Garamond', 'Georgia', serif;
-            background: #f5f1e8;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #fdfcfa;
-            border: 1px solid #d4c5a9;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
 
         .header {
-            background: #5a4a3a;
-            color: #f5f1e8;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
             padding: 20px;
             text-align: center;
-            border-bottom: 3px solid #8b7355;
         }
 
         .header h1 {
-            font-size: 1.75rem;
-            margin-bottom: 8px;
-            font-weight: normal;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 1.4rem;
+            margin-bottom: 6px;
         }
 
         .liturgical-info {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             opacity: 0.9;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .season-badge {
             display: inline-block;
             padding: 4px 12px;
-            border: 1px solid #f5f1e8;
+            border-radius: 20px;
             font-size: 0.75rem;
-            margin-top: 8px;
-            font-weight: normal;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            margin-top: 6px;
+            font-weight: bold;
         }
 
         .daily-art-container {
             width: 100%;
-            padding: 20px;
-            background: #fdfcfa;
+            padding: 25px;
             text-align: center;
-            border-bottom: 1px solid #d4c5a9;
+            background: linear-gradient(to bottom, #f7fafc 0%, #edf2f7 100%);
+            border-bottom: 3px solid #e2e8f0;
         }
 
         .daily-art {
-            max-width: 200px;
-            max-height: 200px;
+            max-width: 280px;
+            max-height: 280px;
             width: auto;
             height: auto;
-            border: 2px solid #8b7355;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid white;
         }
 
         .art-caption {
-            margin-top: 10px;
-            color: #5a4a3a;
-            font-size: 0.75rem;
+            margin-top: 12px;
+            color: #2d3748;
+            font-size: 0.85rem;
             font-style: italic;
-        }
-
-        /* DARK MODE */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #1a1612;
-            }
-
-            .container {
-                background: #2a2520;
-                border: 1px solid #3a3530;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            }
-
-            .header {
-                background: #3a3025;
-                color: #e8dcc8;
-                border-bottom: 3px solid #5a4a3a;
-            }
-
-            .season-badge {
-                border: 1px solid #e8dcc8;
-            }
-
-            .daily-art-container {
-                background: #2a2520;
-                border-bottom: 1px solid #3a3530;
-            }
-
-            .daily-art {
-                border: 2px solid #6a5a4a;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            }
-
-            .art-caption {
-                color: #c8bca8;
-            }
-
-            .content {
-                background: #2a2520;
-            }
-
-            .section-title {
-                color: #d8cbb8;
-                border-bottom: 1px solid #4a4035;
-            }
-
-            .prayer-text {
-                color: #c8bca8;
-            }
-
-            .response {
-                color: #a89878;
-            }
-
-            .psalm {
-                background: #353025;
-                border-left: 3px solid #6a5a4a;
-            }
-
-            .scripture-reading {
-                background: #302a20;
-                border-left: 3px solid #6a5a4a;
-            }
-
-            .reading-reference {
-                color: #d8cbb8;
-            }
-
-            .scripture-text {
-                color: #c8bca8;
-            }
-
-            .verse-number {
-                color: #8a7a6a;
-            }
-
-            .loading {
-                color: #8a7a6a;
-            }
-
-            .silence-note {
-                color: #a89878;
-                background: #353025;
-                border-top: 1px solid #4a4035;
-                border-bottom: 1px solid #4a4035;
-            }
-
-            .canticle {
-                background: #302a20;
-                border-left: 3px solid #6a5a4a;
-            }
-
-            .canticle-title {
-                color: #d8cbb8;
-            }
-
-            .instruction {
-                color: #8a7a6a;
-            }
-
-            .error {
-                background: #3a2520;
-                border-left: 3px solid #8a5a4a;
-                color: #c8bca8;
-            }
-
-            .nav-buttons {
-                background: #252018;
-                border-bottom: 1px solid #3a3530;
-            }
-
-            .nav-btn {
-                border: 1px solid #5a4a3a;
-                background: #2a2520;
-                color: #c8bca8;
-            }
-
-            .nav-btn:hover {
-                background: #353025;
-            }
-
-            .nav-btn.active {
-                background: #5a4a3a;
-                color: #e8dcc8;
-            }
-
-            .morning, .midday, .evening, .night {
-                background: #2a2520;
-                color: #c8bca8;
-            }
-
-            .morning.active, .midday.active, .evening.active, .night.active {
-                background: #5a4a3a;
-                color: #e8dcc8;
-            }
+            font-weight: 500;
         }
 
         .nav-buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
-            padding: 15px;
-            background: #ebe6dc;
-            border-bottom: 1px solid #d4c5a9;
+            gap: 10px;
+            padding: 20px;
+            background: #f7fafc;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .nav-btn {
-            padding: 10px 20px;
-            border: 1px solid #8b7355;
-            background: #fdfcfa;
-            font-size: 0.85rem;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: normal;
-            color: #5a4a3a;
-            font-family: 'Garamond', 'Georgia', serif;
-            letter-spacing: 1px;
+            font-weight: 500;
         }
 
         .nav-btn:hover {
-            background: #f5f1e8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .nav-btn.active {
-            background: #8b7355;
-            color: #fdfcfa;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .morning, .midday, .evening, .night {
-            background: #fdfcfa;
-            color: #5a4a3a;
-        }
+        .morning { background: #fef3c7; color: #92400e; }
+        .morning.active { background: #fbbf24; }
 
-        .morning.active, .midday.active, .evening.active, .night.active {
-            background: #8b7355;
-            color: #fdfcfa;
-        }
+        .midday { background: #dbeafe; color: #1e40af; }
+        .midday.active { background: #60a5fa; }
+
+        .evening { background: #fce7f3; color: #9f1239; }
+        .evening.active { background: #f472b6; }
+
+        .night { background: #e0e7ff; color: #3730a3; }
+        .night.active { background: #818cf8; }
 
         .content {
-            padding: 25px;
-            max-height: 70vh;
-            overflow-y: auto;
-            background: #fdfcfa;
+            padding: 30px;
         }
 
         .office-section {
@@ -279,119 +140,113 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
-            font-size: 1.3rem;
-            color: #5a4a3a;
-            margin: 20px 0 12px 0;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #d4c5a9;
-            font-weight: normal;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin: 25px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
         }
 
         .prayer-text {
-            line-height: 1.9;
-            color: #3a3a3a;
-            margin: 12px 0;
-            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            margin: 15px 0;
+            font-size: 1.05rem;
         }
 
         .response {
             font-style: italic;
             margin-left: 20px;
-            color: #6a5a4a;
+            color: #718096;
         }
 
         .psalm {
-            background: #f5f1e8;
-            padding: 15px;
-            margin: 12px 0;
-            border-left: 3px solid #8b7355;
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
         }
 
         .scripture-reading {
-            background: #faf8f3;
-            padding: 15px;
-            margin: 12px 0;
-            border-left: 3px solid #8b7355;
+            background: #fffbeb;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f59e0b;
         }
 
         .reading-reference {
             font-weight: bold;
-            color: #5a4a3a;
-            margin-bottom: 8px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
         .scripture-text {
-            line-height: 1.9;
-            margin-top: 8px;
-            color: #2a2a2a;
+            line-height: 1.8;
+            margin-top: 10px;
+            color: #1a202c;
         }
 
         .verse-number {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             vertical-align: super;
-            color: #8b7355;
+            color: #718096;
             margin-right: 3px;
         }
 
         .loading {
             text-align: center;
-            padding: 15px;
-            color: #8b7355;
+            padding: 20px;
+            color: #718096;
             font-style: italic;
         }
 
         .silence-note {
             text-align: center;
             font-style: italic;
-            color: #6a5a4a;
-            padding: 15px;
-            background: #f5f1e8;
-            margin: 12px 0;
-            border-top: 1px solid #d4c5a9;
-            border-bottom: 1px solid #d4c5a9;
+            color: #718096;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin: 15px 0;
         }
 
         .canticle {
-            background: #faf8f3;
-            padding: 15px;
-            margin: 12px 0;
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
             font-style: italic;
-            border-left: 3px solid #8b7355;
         }
 
         .canticle-title {
             font-weight: bold;
             font-style: normal;
-            margin-bottom: 8px;
-            color: #5a4a3a;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #92400e;
         }
 
         .instruction {
-            color: #8b7355;
-            font-size: 0.85rem;
+            color: #e53e3e;
+            font-size: 0.9rem;
             font-style: italic;
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
         .error {
-            background: #f5ebe8;
-            border-left: 3px solid #a65a4a;
-            padding: 12px;
-            margin: 12px 0;
-            color: #5a4a3a;
+            background: #fed7d7;
+            border-left: 4px solid #e53e3e;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            color: #742a2a;
         }
     </style>
 </head>
@@ -664,54 +519,108 @@
     <script>
         // Revised Common Lectionary Data (Year C - 2025)
         const lectionary2025 = {
-            // Advent
-            '2025-11-30': { // First Sunday of Advent
+            '2025-11-30': { 
                 ot: 'Jeremiah 33:14-16',
                 psalm: '25:1-10',
                 epistle: '1 Thessalonians 3:9-13',
                 gospel: 'Luke 21:25-36',
-                theme: 'Anticipation and Hope'
+                theme: 'advent_hope'
             },
-            '2025-12-07': { // Second Sunday of Advent
+            '2025-12-07': { 
                 ot: 'Malachi 3:1-4',
                 psalm: 'Luke 1:68-79',
                 epistle: 'Philippians 1:3-11',
                 gospel: 'Luke 3:1-6',
-                theme: 'Preparation'
+                theme: 'advent_preparation'
             },
-            '2025-12-14': { // Third Sunday of Advent
+            '2025-12-14': { 
                 ot: 'Zephaniah 3:14-20',
                 psalm: 'Isaiah 12:2-6',
                 epistle: 'Philippians 4:4-7',
                 gospel: 'Luke 3:7-18',
-                theme: 'Joy'
+                theme: 'advent_joy'
             },
-            '2025-12-21': { // Fourth Sunday of Advent
+            '2025-12-21': { 
                 ot: 'Micah 5:2-5a',
                 psalm: 'Luke 1:46-55',
                 epistle: 'Hebrews 10:5-10',
                 gospel: 'Luke 1:39-45',
-                theme: 'The Visitation'
+                theme: 'advent_visitation'
             },
-            // Christmas
             '2025-12-25': {
                 ot: 'Isaiah 52:7-10',
                 psalm: '98',
                 epistle: 'Hebrews 1:1-4',
                 gospel: 'John 1:1-14',
-                theme: 'The Word Made Flesh'
+                theme: 'christmas_nativity'
             },
-            // Default for today (Ordinary Time - Late November)
             'default': {
                 ot: 'Jeremiah 33:14-16',
                 psalm: '25:1-10',
                 epistle: '1 Thessalonians 3:9-13',
                 gospel: 'Luke 21:25-36',
-                theme: 'Gods Faithfulness'
+                theme: 'ordinary_faithfulness'
             }
         };
 
-        // Liturgical calendar data
+        // Enhanced religious art - rotates daily based on day of week
+        const artByTheme = {
+            'advent_hope': [
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 0 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 2 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg/400px-El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg', caption: 'The Annunciation - El Greco (1576)', day: 3 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/John_the_Baptist_by_Leonardo_da_Vinci.jpg/400px-John_the_Baptist_by_Leonardo_da_Vinci.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 5 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 6 }
+            ],
+            'advent_preparation': [
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/John_the_Baptist_by_Leonardo_da_Vinci.jpg/400px-John_the_Baptist_by_Leonardo_da_Vinci.jpg', caption: 'John the Baptist - Leonardo (1516)', day: 0 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 1 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 2 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 3 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg/400px-Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg', caption: 'Crucifixion - Duccio (1311)', day: 4 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 5 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
+            ],
+            'advent_joy': [
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 0 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 2 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 3 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 4 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 5 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg/400px-El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
+            ],
+            'advent_visitation': [
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg/400px-Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg', caption: 'The Visitation - Albertinelli (1503)', day: 0 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 1 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 2 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 4 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 5 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg/400px-El_Greco_-_The_Annunciation_-_Google_Art_Project.jpg', caption: 'The Annunciation - El Greco (1576)', day: 6 }
+            ],
+            'christmas_nativity': [
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg/400px-Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg', caption: 'The Nativity - Duccio (1311)', day: 0 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 1 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pietro_Perugino_cat51a.jpg/400px-Pietro_Perugino_cat51a.jpg', caption: 'Madonna and Child - Perugino (1500)', day: 2 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg/400px-Sandro_Botticelli_-_Madonna_and_Child_with_an_Angel_-_Google_Art_Project.jpg', caption: 'Madonna and Child - Botticelli (1470)', day: 3 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg/400px-Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg', caption: 'The Nativity - Duccio (1311)', day: 4 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 5 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 6 }
+            ],
+            'ordinary_faithfulness': [
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rembrandt_Harmensz._van_Rijn_038.jpg/400px-Rembrandt_Harmensz._van_Rijn_038.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 0 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg', caption: 'The Trinity - Andrei Rublev (1411)', day: 1 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg/400px-Duccio_di_Buoninsegna_-_Crucifixion_-_WGA06820.jpg', caption: 'Crucifixion - Duccio (1311)', day: 2 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Fra_Angelico_009.jpg/400px-Fra_Angelico_009.jpg', caption: 'Annunciation - Fra Angelico (1440)', day: 3 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rembrandt_Harmensz._van_Rijn_038.jpg/400px-Rembrandt_Harmensz._van_Rijn_038.jpg', caption: 'The Apostle Paul - Rembrandt (1633)', day: 4 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg', caption: 'The Annunciation - Simone Martini (1333)', day: 5 },
+                { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg/400px-Giotto_-_Scrovegni_-_-18-_-_Adoration_of_the_Magi.jpg', caption: 'Adoration of the Magi - Giotto (1305)', day: 6 }
+            ]
+        };
+
         const liturgicalData = {
             2025: {
                 advent: { start: '2025-11-30', end: '2025-12-24' },
@@ -723,13 +632,11 @@
             }
         };
 
-        // Daily psalm cycles
         const morningPsalms = [95, 100, 63, 51, 19, 24, 84];
         const eveningPsalms = [141, 134, 4, 139, 23, 121, 91];
         const middayPsalms = [113, 67, 117, 119];
         const nightPsalms = [134, 91, 4, 31];
 
-        // Opening sentences by season
         const openingSentences = {
             advent: "In the tender mercy of our God, the dawn from on high will break upon us. - Luke 1:78",
             christmas: "The Word became flesh and lived among us, full of grace and truth. - John 1:14",
@@ -740,32 +647,15 @@
             ordinary: "This is the day that the Lord has made; let us rejoice and be glad in it. - Psalm 118:24"
         };
 
-        // Religious art collections from public domain sources - icons and sacred art
-        const artByTheme = {
-            'Anticipation and Hope': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andrei_Rublev_001.jpg/400px-Andrei_Rublev_001.jpg',
-                caption: 'The Trinity - Andrei Rublev (1411)'
-            },
-            'Preparation': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/John_the_Baptist_by_Leonardo_da_Vinci.jpg/400px-John_the_Baptist_by_Leonardo_da_Vinci.jpg',
-                caption: 'John the Baptist - Leonardo da Vinci (1513-1516)'
-            },
-            'Joy': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Simone_Martini_046.jpg/400px-Simone_Martini_046.jpg',
-                caption: 'The Annunciation - Simone Martini (1333)'
-            },
-            'The Visitation': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg/400px-Mariotto_Albertinelli_-_The_Visitation_-_Google_Art_Project.jpg',
-                caption: 'The Visitation - Mariotto Albertinelli (1503)'
-            },
-            'The Word Made Flesh': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg/400px-Duccio_di_Buoninsegna_-_The_Nativity_with_the_Prophets_Isaiah_and_Ezekiel_-_Google_Art_Project.jpg',
-                caption: 'The Nativity - Duccio di Buoninsegna (1308-1311)'
-            },
-            'Gods Faithfulness': {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Rembrandt_Harmensz._van_Rijn_038.jpg/400px-Rembrandt_Harmensz._van_Rijn_038.jpg',
-                caption: 'The Apostle Paul - Rembrandt (1633)'
-            }
+        const embeddedScripture = {
+            'Jeremiah 33:14-16': `<span class="verse-number">14</span>The days are surely coming, says the Lord, when I will fulfill the promise I made to the house of Israel and the house of Judah. <span class="verse-number">15</span>In those days and at that time I will cause a righteous Branch to spring up for David; and he shall execute justice and righteousness in the land. <span class="verse-number">16</span>In those days Judah will be saved and Jerusalem will live in safety. And this is the name by which it will be called: "The Lord is our righteousness."`,
+            'Psalm 25:1-10': `<span class="verse-number">1</span>To you, O Lord, I lift up my soul. <span class="verse-number">2</span>O my God, in you I trust; do not let me be put to shame; do not let my enemies exult over me. <span class="verse-number">3</span>Do not let those who wait for you be put to shame; let them be ashamed who are wantonly treacherous. <span class="verse-number">4</span>Make me to know your ways, O Lord; teach me your paths. <span class="verse-number">5</span>Lead me in your truth, and teach me, for you are the God of my salvation; for you I wait all day long. <span class="verse-number">6</span>Be mindful of your mercy, O Lord, and of your steadfast love, for they have been from of old. <span class="verse-number">7</span>Do not remember the sins of my youth or my transgressions; according to your steadfast love remember me, for your goodness' sake, O Lord! <span class="verse-number">8</span>Good and upright is the Lord; therefore he instructs sinners in the way. <span class="verse-number">9</span>He leads the humble in what is right, and teaches the humble his way. <span class="verse-number">10</span>All the paths of the Lord are steadfast love and faithfulness, for those who keep his covenant and his decrees.`,
+            '1 Thessalonians 3:9-13': `<span class="verse-number">9</span>How can we thank God enough for you in return for all the joy that we feel before our God because of you? <span class="verse-number">10</span>Night and day we pray most earnestly that we may see you face to face and restore whatever is lacking in your faith. <span class="verse-number">11</span>Now may our God and Father himself and our Lord Jesus direct our way to you. <span class="verse-number">12</span>And may the Lord make you increase and abound in love for one another and for all, just as we abound in love for you. <span class="verse-number">13</span>And may he so strengthen your hearts in holiness that you may be blameless before our God and Father at the coming of our Lord Jesus with all his saints.`,
+            'Luke 21:25-36': `<span class="verse-number">25</span>"There will be signs in the sun, the moon, and the stars, and on the earth distress among nations confused by the roaring of the sea and the waves. <span class="verse-number">26</span>People will faint from fear and foreboding of what is coming upon the world, for the powers of the heavens will be shaken. <span class="verse-number">27</span>Then they will see 'the Son of Man coming in a cloud' with power and great glory. <span class="verse-number">28</span>Now when these things begin to take place, stand up and raise your heads, because your redemption is drawing near." <span class="verse-number">29</span>Then he told them a parable: "Look at the fig tree and all the trees; <span class="verse-number">30</span>as soon as they sprout leaves you can see for yourselves and know that summer is already near. <span class="verse-number">31</span>So also, when you see these things taking place, you know that the kingdom of God is near. <span class="verse-number">32</span>Truly I tell you, this generation will not pass away until all things have taken place. <span class="verse-number">33</span>Heaven and earth will pass away, but my words will not pass away. <span class="verse-number">34</span>Be on guard so that your hearts are not weighed down with dissipation and drunkenness and the worries of this life, and that day catch you unexpectedly, <span class="verse-number">35</span>like a trap. For it will come upon all who live on the face of the whole earth. <span class="verse-number">36</span>Be alert at all times, praying that you may have the strength to escape all these things that will take place, and to stand before the Son of Man."`,
+            'Psalm 95': `<span class="verse-number">1</span>O come, let us sing to the Lord; let us make a joyful noise to the rock of our salvation! <span class="verse-number">2</span>Let us come into his presence with thanksgiving; let us make a joyful noise to him with songs of praise! <span class="verse-number">3</span>For the Lord is a great God, and a great King above all gods. <span class="verse-number">4</span>In his hand are the depths of the earth; the heights of the mountains are his also. <span class="verse-number">5</span>The sea is his, for he made it, and the dry land, which his hands have formed. <span class="verse-number">6</span>O come, let us worship and bow down, let us kneel before the Lord, our Maker! <span class="verse-number">7</span>For he is our God, and we are the people of his pasture, and the sheep of his hand.`,
+            'Psalm 141': `<span class="verse-number">1</span>I call upon you, O Lord; come quickly to me; give ear to my voice when I call to you. <span class="verse-number">2</span>Let my prayer be counted as incense before you, and the lifting up of my hands as an evening sacrifice. <span class="verse-number">3</span>Set a guard over my mouth, O Lord; keep watch over the door of my lips. <span class="verse-number">4</span>Do not turn my heart to any evil, to busy myself with wicked deeds in company with those who work iniquity; do not let me eat of their delicacies. <span class="verse-number">5</span>Let the righteous strike me; let the faithful correct me. Never let the oil of the wicked anoint my head, for my prayer is continually against their wicked deeds.`,
+            'Psalm 113': `<span class="verse-number">1</span>Praise the Lord! Praise, O servants of the Lord; praise the name of the Lord. <span class="verse-number">2</span>Blessed be the name of the Lord from this time on and forevermore. <span class="verse-number">3</span>From the rising of the sun to its setting the name of the Lord is to be praised. <span class="verse-number">4</span>The Lord is high above all nations, and his glory above the heavens. <span class="verse-number">5</span>Who is like the Lord our God, who is seated on high, <span class="verse-number">6</span>who looks far down on the heavens and the earth? <span class="verse-number">7</span>He raises the poor from the dust, and lifts the needy from the ash heap, <span class="verse-number">8</span>to make them sit with princes, with the princes of his people. <span class="verse-number">9</span>He gives the barren woman a home, making her the joyous mother of children. Praise the Lord!`,
+            'Psalm 134': `<span class="verse-number">1</span>Come, bless the Lord, all you servants of the Lord, who stand by night in the house of the Lord! <span class="verse-number">2</span>Lift up your hands to the holy place, and bless the Lord. <span class="verse-number">3</span>May the Lord, maker of heaven and earth, bless you from Zion.`
         };
 
         function getCurrentSeason() {
@@ -783,15 +673,15 @@
 
         function getSeasonColor(season) {
             const colors = {
-                advent: '#6B5B95',
-                christmas: '#D4AF37',
-                epiphany: '#8B7355',
-                lent: '#6B5B95',
-                easter: '#D4AF37',
-                pentecost: '#8B4513',
-                ordinary: '#5a4a3a'
+                advent: '#6B46C1',
+                christmas: '#ECC94B',
+                epiphany: '#48BB78',
+                lent: '#805AD5',
+                easter: '#F6E05E',
+                pentecost: '#E53E3E',
+                ordinary: '#48BB78'
             };
-            return colors[season] || '#5a4a3a';
+            return colors[season] || '#48BB78';
         }
 
         function getTodaysLectionary() {
@@ -803,28 +693,7 @@
             return new Date().getDay();
         }
 
-        // Embedded scripture texts (fallback for offline/API issues)
-        const embeddedScripture = {
-            'Jeremiah 33:14-16': `<span class="verse-number">14</span>The days are surely coming, says the Lord, when I will fulfill the promise I made to the house of Israel and the house of Judah. <span class="verse-number">15</span>In those days and at that time I will cause a righteous Branch to spring up for David; and he shall execute justice and righteousness in the land. <span class="verse-number">16</span>In those days Judah will be saved and Jerusalem will live in safety. And this is the name by which it will be called: "The Lord is our righteousness."`,
-            
-            'Psalm 25:1-10': `<span class="verse-number">1</span>To you, O Lord, I lift up my soul. <span class="verse-number">2</span>O my God, in you I trust; do not let me be put to shame; do not let my enemies exult over me. <span class="verse-number">3</span>Do not let those who wait for you be put to shame; let them be ashamed who are wantonly treacherous. <span class="verse-number">4</span>Make me to know your ways, O Lord; teach me your paths. <span class="verse-number">5</span>Lead me in your truth, and teach me, for you are the God of my salvation; for you I wait all day long. <span class="verse-number">6</span>Be mindful of your mercy, O Lord, and of your steadfast love, for they have been from of old. <span class="verse-number">7</span>Do not remember the sins of my youth or my transgressions; according to your steadfast love remember me, for your goodness' sake, O Lord! <span class="verse-number">8</span>Good and upright is the Lord; therefore he instructs sinners in the way. <span class="verse-number">9</span>He leads the humble in what is right, and teaches the humble his way. <span class="verse-number">10</span>All the paths of the Lord are steadfast love and faithfulness, for those who keep his covenant and his decrees.`,
-            
-            '1 Thessalonians 3:9-13': `<span class="verse-number">9</span>How can we thank God enough for you in return for all the joy that we feel before our God because of you? <span class="verse-number">10</span>Night and day we pray most earnestly that we may see you face to face and restore whatever is lacking in your faith. <span class="verse-number">11</span>Now may our God and Father himself and our Lord Jesus direct our way to you. <span class="verse-number">12</span>And may the Lord make you increase and abound in love for one another and for all, just as we abound in love for you. <span class="verse-number">13</span>And may he so strengthen your hearts in holiness that you may be blameless before our God and Father at the coming of our Lord Jesus with all his saints.`,
-            
-            'Luke 21:25-36': `<span class="verse-number">25</span>"There will be signs in the sun, the moon, and the stars, and on the earth distress among nations confused by the roaring of the sea and the waves. <span class="verse-number">26</span>People will faint from fear and foreboding of what is coming upon the world, for the powers of the heavens will be shaken. <span class="verse-number">27</span>Then they will see 'the Son of Man coming in a cloud' with power and great glory. <span class="verse-number">28</span>Now when these things begin to take place, stand up and raise your heads, because your redemption is drawing near." <span class="verse-number">29</span>Then he told them a parable: "Look at the fig tree and all the trees; <span class="verse-number">30</span>as soon as they sprout leaves you can see for yourselves and know that summer is already near. <span class="verse-number">31</span>So also, when you see these things taking place, you know that the kingdom of God is near. <span class="verse-number">32</span>Truly I tell you, this generation will not pass away until all things have taken place. <span class="verse-number">33</span>Heaven and earth will pass away, but my words will not pass away. <span class="verse-number">34</span>Be on guard so that your hearts are not weighed down with dissipation and drunkenness and the worries of this life, and that day catch you unexpectedly, <span class="verse-number">35</span>like a trap. For it will come upon all who live on the face of the whole earth. <span class="verse-number">36</span>Be alert at all times, praying that you may have the strength to escape all these things that will take place, and to stand before the Son of Man."`,
-            
-            'Psalm 95': `<span class="verse-number">1</span>O come, let us sing to the Lord; let us make a joyful noise to the rock of our salvation! <span class="verse-number">2</span>Let us come into his presence with thanksgiving; let us make a joyful noise to him with songs of praise! <span class="verse-number">3</span>For the Lord is a great God, and a great King above all gods. <span class="verse-number">4</span>In his hand are the depths of the earth; the heights of the mountains are his also. <span class="verse-number">5</span>The sea is his, for he made it, and the dry land, which his hands have formed. <span class="verse-number">6</span>O come, let us worship and bow down, let us kneel before the Lord, our Maker! <span class="verse-number">7</span>For he is our God, and we are the people of his pasture, and the sheep of his hand.`,
-            
-            'Psalm 141': `<span class="verse-number">1</span>I call upon you, O Lord; come quickly to me; give ear to my voice when I call to you. <span class="verse-number">2</span>Let my prayer be counted as incense before you, and the lifting up of my hands as an evening sacrifice. <span class="verse-number">3</span>Set a guard over my mouth, O Lord; keep watch over the door of my lips. <span class="verse-number">4</span>Do not turn my heart to any evil, to busy myself with wicked deeds in company with those who work iniquity; do not let me eat of their delicacies. <span class="verse-number">5</span>Let the righteous strike me; let the faithful correct me. Never let the oil of the wicked anoint my head, for my prayer is continually against their wicked deeds.`,
-            
-            'Psalm 113': `<span class="verse-number">1</span>Praise the Lord! Praise, O servants of the Lord; praise the name of the Lord. <span class="verse-number">2</span>Blessed be the name of the Lord from this time on and forevermore. <span class="verse-number">3</span>From the rising of the sun to its setting the name of the Lord is to be praised. <span class="verse-number">4</span>The Lord is high above all nations, and his glory above the heavens. <span class="verse-number">5</span>Who is like the Lord our God, who is seated on high, <span class="verse-number">6</span>who looks far down on the heavens and the earth? <span class="verse-number">7</span>He raises the poor from the dust, and lifts the needy from the ash heap, <span class="verse-number">8</span>to make them sit with princes, with the princes of his people. <span class="verse-number">9</span>He gives the barren woman a home, making her the joyous mother of children. Praise the Lord!`,
-            
-            'Psalm 134': `<span class="verse-number">1</span>Come, bless the Lord, all you servants of the Lord, who stand by night in the house of the Lord! <span class="verse-number">2</span>Lift up your hands to the holy place, and bless the Lord. <span class="verse-number">3</span>May the Lord, maker of heaven and earth, bless you from Zion.`,
-        };
-
-        // Fetch scripture with fallback to embedded texts
         async function fetchScripture(reference) {
-            // First try embedded scripture
             if (embeddedScripture[reference]) {
                 return {
                     reference: reference,
@@ -833,7 +702,6 @@
                 };
             }
 
-            // Try to fetch from API
             try {
                 const formattedRef = reference.replace(/\s/g, '%20');
                 const response = await fetch(`https://bible-api.com/${formattedRef}?translation=web`, {
@@ -847,11 +715,9 @@
                 const data = await response.json();
                 return formatScriptureText(data, reference);
             } catch (error) {
-                console.log('Using fallback for:', reference);
-                // Return instruction to read from Bible
                 return {
                     reference: reference,
-                    text: `<div class="instruction">Please read ${reference} from your Bible or use the Bible app on your device.</div>`,
+                    text: `<div class="instruction">Please read ${reference} from your Bible.</div>`,
                     error: true
                 };
             }
@@ -883,21 +749,18 @@
         async function loadMorningReadings() {
             const lectionary = getTodaysLectionary();
             
-            // Load OT reading
             const otReading = await fetchScripture(lectionary.ot);
             document.getElementById('morning-ot-reading').innerHTML = `
                 <div class="reading-reference">Old Testament: ${otReading.reference}</div>
                 <div class="scripture-text">${otReading.text}</div>
             `;
 
-            // Load Epistle reading
             const epistleReading = await fetchScripture(lectionary.epistle);
             document.getElementById('morning-epistle-reading').innerHTML = `
                 <div class="reading-reference">Epistle: ${epistleReading.reference}</div>
                 <div class="scripture-text">${epistleReading.text}</div>
             `;
 
-            // Load Gospel reading
             const gospelReading = await fetchScripture(lectionary.gospel);
             document.getElementById('morning-gospel-reading').innerHTML = `
                 <div class="reading-reference">Gospel: ${gospelReading.reference}</div>
@@ -912,7 +775,7 @@
             if (psalmReading.error) {
                 container.innerHTML = `
                     <strong>Psalm ${psalmNumber}</strong>
-                    <div class="instruction">Please read Psalm ${psalmNumber} from your Bible or prayer book.</div>
+                    <div class="instruction">Please read Psalm ${psalmNumber} from your Bible.</div>
                 `;
             } else {
                 container.innerHTML = `
@@ -944,15 +807,17 @@
 
         function loadDailyArt() {
             const lectionary = getTodaysLectionary();
-            const artData = artByTheme[lectionary.theme] || artByTheme['Gods Faithfulness'];
+            const dayOfWeek = getDayOfWeek();
+            const theme = lectionary.theme;
+            
+            const artArray = artByTheme[theme] || artByTheme['ordinary_faithfulness'];
+            const artData = artArray.find(art => art.day === dayOfWeek) || artArray[0];
             
             const dailyArtImg = document.getElementById('daily-art');
             
-            // Add error handler
             dailyArtImg.onerror = function() {
-                console.log('Image failed to load, using fallback');
                 this.style.display = 'none';
-                document.getElementById('art-caption').textContent = 'Theme: ' + lectionary.theme;
+                document.getElementById('art-caption').textContent = 'Theme: ' + theme.replace('_', ' ');
             };
             
             dailyArtImg.src = artData.url;
@@ -965,7 +830,6 @@
             const seasonColor = getSeasonColor(season);
             const dayIndex = getDayOfWeek();
 
-            // Set date and season
             document.getElementById('current-date').textContent = today.toLocaleDateString('en-US', {
                 weekday: 'long',
                 year: 'numeric',
@@ -977,16 +841,12 @@
             seasonBadge.textContent = season.charAt(0).toUpperCase() + season.slice(1);
             seasonBadge.style.backgroundColor = seasonColor;
 
-            // Set opening sentences
             document.getElementById('morning-opening').textContent = openingSentences[season];
             document.getElementById('evening-opening').textContent = openingSentences[season];
-
             document.getElementById('lectionary-info').textContent = 'Revised Common Lectionary - Year C';
 
-            // Load daily art
             loadDailyArt();
 
-            // Load all readings
             await loadMorningReadings();
             await loadPsalm(morningPsalms[dayIndex], 'morning-psalm-container');
             await loadPsalm(eveningPsalms[dayIndex], 'evening-psalm-container');
@@ -997,27 +857,19 @@
         }
 
         function showOffice(office) {
-            // Hide all sections
             document.querySelectorAll('.office-section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Remove active class from all buttons
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // Show selected section
             document.getElementById(office).classList.add('active');
-            
-            // Add active class to clicked button
             event.target.classList.add('active');
-
-            // Scroll to top of content
             document.querySelector('.content').scrollTop = 0;
         }
 
-        // Initialize on load
         initializePage();
     </script>
 </body>
