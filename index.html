@@ -329,6 +329,11 @@
 
             .canticle {
                 background: #374151;
+                color: #e2e8f0;
+            }
+
+            .canticle p {
+                color: #e2e8f0;
             }
 
             .canticle-title {
@@ -916,29 +921,68 @@
             // Set caption first
             artCaption.textContent = artData.caption;
             
-            // Try to load the image
+            // Create fallback handler
+            let attemptCount = 0;
             dailyArtImg.onerror = function() {
-                console.log('Image failed to load, using St Giles Cathedral');
-                // Fallback to St Giles Cathedral from Unsplash (more reliable CDN)
-                this.src = 'https://images.unsplash.com/photo-1580669396919-bc188bd64c68?w=400&q=80';
-                artCaption.textContent = "St Giles' Cathedral, Edinburgh - The High Kirk of Scotland";
+                attemptCount++;
+                console.log('Image load attempt ' + attemptCount + ' failed');
                 
-                // If even this fails, use a text-based fallback
-                this.onerror = function() {
+                if (attemptCount === 1) {
+                    // First fallback: try alternate source
+                    console.log('Trying alternate source');
+                    this.src = 'https://picsum.photos/400/400?random=' + dayOfWeek;
+                    artCaption.textContent = "Sacred Art - " + theme.replace('_', ' ');
+                } else {
+                    // Final fallback: embedded SVG cathedral
+                    console.log('Using embedded SVG');
                     this.outerHTML = `
-                        <div class="daily-art" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 1.2rem; text-align: center; padding: 40px;">
-                            <div>
-                                <div style="font-size: 3rem; margin-bottom: 10px;">✝</div>
-                                <div>Daily Office</div>
-                                <div style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">Presbyterian Church (USA)</div>
-                            </div>
-                        </div>
+                        <svg class="daily-art" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto;">
+                            <defs>
+                                <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="stoneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#9ca3af;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#6b7280;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Sky background -->
+                            <rect width="400" height="400" fill="url(#skyGrad)"/>
+                            
+                            <!-- Cathedral base -->
+                            <rect x="100" y="250" width="200" height="150" fill="url(#stoneGrad)"/>
+                            
+                            <!-- Central tower -->
+                            <rect x="150" y="150" width="100" height="100" fill="url(#stoneGrad)"/>
+                            <polygon points="200,100 150,150 250,150" fill="#6b7280"/>
+                            
+                            <!-- Left tower -->
+                            <rect x="100" y="200" width="40" height="50" fill="url(#stoneGrad)"/>
+                            <polygon points="120,180 100,200 140,200" fill="#6b7280"/>
+                            
+                            <!-- Right tower -->
+                            <rect x="260" y="200" width="40" height="50" fill="url(#stoneGrad)"/>
+                            <polygon points="280,180 260,200 300,200" fill="#6b7280"/>
+                            
+                            <!-- Windows -->
+                            <rect x="170" y="280" width="60" height="80" fill="#4a5568" rx="30"/>
+                            <rect x="170" y="190" width="60" height="40" fill="#4a5568" rx="20"/>
+                            
+                            <!-- Cross on top -->
+                            <rect x="195" y="70" width="10" height="35" fill="#f5f1e8"/>
+                            <rect x="185" y="80" width="30" height="10" fill="#f5f1e8"/>
+                            
+                            <!-- Ground -->
+                            <rect y="380" width="400" height="20" fill="#48bb78"/>
+                        </svg>
                     `;
-                    artCaption.textContent = "Book of Common Worship";
-                };
+                    artCaption.textContent = "St Giles' Cathedral, Edinburgh - The High Kirk of Scotland";
+                }
             };
             
-            // Set image source
+            // Try to load primary image
             dailyArtImg.src = artData.url;
         }
 
