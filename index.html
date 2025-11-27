@@ -814,14 +814,33 @@
             const artData = artArray.find(art => art.day === dayOfWeek) || artArray[0];
             
             const dailyArtImg = document.getElementById('daily-art');
+            const artCaption = document.getElementById('art-caption');
             
+            // Set caption first
+            artCaption.textContent = artData.caption;
+            
+            // Try to load the image
             dailyArtImg.onerror = function() {
-                this.style.display = 'none';
-                document.getElementById('art-caption').textContent = 'Theme: ' + theme.replace('_', ' ');
+                console.log('Image failed to load, using decorative cross');
+                // Replace with decorative cross SVG
+                this.outerHTML = `
+                    <svg class="daily-art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="crossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#8b7355;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#5a4a3a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="200" height="200" fill="#f5f1e8"/>
+                        <rect x="85" y="30" width="30" height="140" rx="3" fill="url(#crossGrad)"/>
+                        <rect x="30" y="85" width="140" height="30" rx="3" fill="url(#crossGrad)"/>
+                        <circle cx="100" cy="100" r="15" fill="#f5f1e8" opacity="0.3"/>
+                    </svg>
+                `;
             };
             
+            // Set image source
             dailyArtImg.src = artData.url;
-            document.getElementById('art-caption').textContent = artData.caption;
         }
 
         async function initializePage() {
