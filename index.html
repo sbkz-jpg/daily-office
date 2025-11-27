@@ -133,6 +133,9 @@
         .night { background: #e0e7ff; color: #3730a3; }
         .night.active { background: #818cf8; }
 
+        .contemplative { background: #f3e8ff; color: #6b21a8; }
+        .contemplative.active { background: #a78bfa; }
+
         .content {
             padding: 30px;
         }
@@ -377,6 +380,7 @@
             <button class="nav-btn midday" onclick="showOffice('midday')">Midday Prayer</button>
             <button class="nav-btn evening" onclick="showOffice('evening')">Evening Prayer</button>
             <button class="nav-btn night" onclick="showOffice('night')">Night Prayer</button>
+            <button class="nav-btn contemplative" onclick="showOffice('contemplative')">Contemplative</button>
         </div>
 
         <div class="content">
@@ -617,6 +621,68 @@
                     <p>The almighty and merciful Lord, Father, Son, and Holy Spirit, bless us and keep us. Amen.</p>
                 </div>
             </div>
+
+            <!-- CONTEMPLATIVE PRAYER -->
+            <div id="contemplative" class="office-section">
+                <h2 class="section-title">Contemplative Prayer</h2>
+                
+                <div class="prayer-text">
+                    <strong>Opening</strong>
+                    <p>Be still, and know that I am God.</p>
+                    <p class="response">- Psalm 46:10</p>
+                </div>
+
+                <div class="silence-note">
+                    Take a few deep breaths and center yourself in God's presence
+                </div>
+
+                <div class="canticle" id="daily-mystic-prayer">
+                    <div class="loading">Loading today's contemplative prayer...</div>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Lectio Divina: Sacred Reading</strong>
+                    <p style="margin-bottom: 15px;">A contemplative way of reading Scripture in four movements:</p>
+                    
+                    <div style="margin-left: 20px; line-height: 2;">
+                        <p><strong>1. Lectio (Read)</strong> - Read the passage slowly, listening for a word or phrase that speaks to you</p>
+                        <p><strong>2. Meditatio (Meditate)</strong> - Reflect on the word or phrase. What does it mean for your life today?</p>
+                        <p><strong>3. Oratio (Pray)</strong> - Respond to God in prayer about what you've heard</p>
+                        <p><strong>4. Contemplatio (Contemplate)</strong> - Rest in God's presence in silence</p>
+                    </div>
+                </div>
+
+                <div class="scripture-reading" id="lectio-passage">
+                    <div class="reading-reference">Today's Lectio Divina Passage</div>
+                    <div class="loading">Loading Scripture...</div>
+                </div>
+
+                <div class="silence-note" style="padding: 30px;">
+                    <p style="margin-bottom: 10px; font-size: 1.1rem;">Now enter into silence...</p>
+                    <p style="font-size: 0.9rem;">Spend time with God in wordless prayer</p>
+                </div>
+
+                <div class="canticle" id="celtic-blessing">
+                    <div class="loading">Loading Celtic blessing...</div>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>The Jesus Prayer</strong>
+                    <p style="font-style: italic; text-align: center; padding: 20px; font-size: 1.1rem;">
+                        Lord Jesus Christ, Son of God,<br>
+                        have mercy on me, a sinner.
+                    </p>
+                    <p style="text-align: center; font-size: 0.9rem; color: #718096;">
+                        (Repeat slowly, synchronizing with your breath)
+                    </p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Closing</strong>
+                    <p>May the peace of Christ dwell in your heart.</p>
+                    <p class="response">Amen.</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -812,6 +878,136 @@
             pentecost: "I will pour out my Spirit upon all flesh, and your sons and daughters shall prophesy. - Acts 2:17",
             ordinary: "This is the day that the Lord has made; let us rejoice and be glad in it. - Psalm 118:24"
         };
+
+        // Prayers from Christian Mystics across traditions
+        const mysticPrayers = [
+            // Celtic - Carmina Gadelica
+            {
+                tradition: "Celtic",
+                author: "Carmina Gadelica",
+                prayer: "I am bending my knee<br>In the eye of the Father who created me,<br>In the eye of the Son who purchased me,<br>In the eye of the Spirit who cleansed me,<br>In friendship and affection.<br><br>Through Thine own Anointed One, O God,<br>Bestow upon us fullness in our need,<br>Love towards God,<br>The affection of God,<br>The smile of God,<br>The wisdom of God,<br>The grace of God,<br>The fear of God,<br>And the will of God."
+            },
+            {
+                tradition: "Celtic",
+                author: "St. Patrick's Breastplate",
+                prayer: "Christ with me, Christ before me,<br>Christ behind me, Christ in me,<br>Christ beneath me, Christ above me,<br>Christ on my right, Christ on my left,<br>Christ when I lie down, Christ when I sit down,<br>Christ when I arise,<br>Christ in the heart of every man who thinks of me,<br>Christ in the mouth of everyone who speaks of me,<br>Christ in every eye that sees me,<br>Christ in every ear that hears me."
+            },
+            {
+                tradition: "Celtic",
+                author: "Carmina Gadelica - Morning Prayer",
+                prayer: "Thanks to Thee ever, O gentle Christ,<br>That Thou hast raised me freely from the black<br>And from the darkness of last night<br>To the kindly light of this day.<br><br>Praise unto Thee, O God of all creatures,<br>According to each life Thou hast poured on me,<br>My desire, my word, my sense, my repute,<br>My thought, my deed, my way, my fame."
+            },
+            {
+                tradition: "Celtic",
+                author: "St. Columba",
+                prayer: "My dearest Lord,<br>Be Thou a bright flame before me,<br>Be Thou a guiding star above me,<br>Be Thou a smooth path beneath me,<br>Be Thou a kindly shepherd behind me,<br>Today and evermore."
+            },
+            // Catholic Mystics
+            {
+                tradition: "Catholic",
+                author: "St. Francis of Assisi",
+                prayer: "Lord, make me an instrument of your peace.<br>Where there is hatred, let me sow love;<br>Where there is injury, pardon;<br>Where there is doubt, faith;<br>Where there is despair, hope;<br>Where there is darkness, light;<br>Where there is sadness, joy."
+            },
+            {
+                tradition: "Catholic",
+                author: "St. Teresa of Avila",
+                prayer: "Let nothing disturb you,<br>Let nothing frighten you,<br>All things are passing away:<br>God never changes.<br>Patience obtains all things.<br>Whoever has God lacks nothing;<br>God alone suffices."
+            },
+            {
+                tradition: "Catholic",
+                author: "St. John of the Cross",
+                prayer: "O living flame of love<br>That tenderly wounds my soul<br>In its deepest center! Since<br>Now you are not oppressive,<br>Now consummate! if it be your will:<br>Tear through the veil of this sweet encounter!"
+            },
+            {
+                tradition: "Catholic",
+                author: "Thomas Merton",
+                prayer: "My Lord God, I have no idea where I am going. I do not see the road ahead of me. I cannot know for certain where it will end. Nor do I really know myself, and the fact that I think I am following your will does not mean that I am actually doing so. But I believe that the desire to please you does in fact please you. And I hope I have that desire in all that I am doing. I hope that I will never do anything apart from that desire. And I know that if I do this you will lead me by the right road, though I may know nothing about it. Therefore I will trust you always though I may seem to be lost and in the shadow of death. I will not fear, for you are ever with me, and you will never leave me to face my perils alone."
+            },
+            {
+                tradition: "Catholic",
+                author: "St. Thérèse of Lisieux",
+                prayer: "O Jesus, I know it, love is repaid by love alone. Therefore I searched and I found how to solace my heart by giving Thee Love for Love."
+            },
+            // Orthodox
+            {
+                tradition: "Orthodox",
+                author: "St. Ephrem the Syrian",
+                prayer: "O Lord and Master of my life,<br>Take from me the spirit of sloth, despair, lust of power, and idle talk.<br>But give rather the spirit of chastity, humility, patience, and love to Thy servant.<br>Yea, O Lord and King,<br>Grant me to see my own transgressions,<br>And not to judge my brother,<br>For blessed art Thou, unto ages of ages. Amen."
+            },
+            {
+                tradition: "Orthodox",
+                author: "The Philokalia",
+                prayer: "Keep your mind in hell, and despair not."
+            },
+            {
+                tradition: "Orthodox",
+                author: "St. Silouan the Athonite",
+                prayer: "My soul is weary of itself, for it is unprofitable. But when the Holy Spirit comes, then the soul is easily borne up by contemplation of the love of God, and forgets herself, for she is contemplating the Lord and delighting in Him."
+            },
+            // Anglican
+            {
+                tradition: "Anglican",
+                author: "George Herbert",
+                prayer: "Lord, with what care hast Thou begirt us round!<br>Parents first season us; then schoolmasters<br>Deliver us to laws; they send us bound<br>To rules of reason, holy messengers,<br>Pulpits and Sundays, sorrow dogging sin,<br>Afflictions sorted, anguish of all sizes,<br>Fine nets and stratagems to catch us in,<br>Bibles laid open, millions of surprises."
+            },
+            {
+                tradition: "Anglican",
+                author: "Thomas Cranmer",
+                prayer: "Almighty God, unto whom all hearts be open, all desires known, and from whom no secrets are hid: Cleanse the thoughts of our hearts by the inspiration of thy Holy Spirit, that we may perfectly love thee, and worthily magnify thy holy Name; through Christ our Lord. Amen."
+            },
+            {
+                tradition: "Anglican",
+                author: "Evelyn Underhill",
+                prayer: "Give me grace, O my Father, to be utterly devoted to Thee. Help me to give myself to Thee, at every moment and in all the actions of my life; to Thee and Thee only, with true inward poverty of spirit."
+            },
+            // Presbyterian/Reformed
+            {
+                tradition: "Reformed",
+                author: "John Calvin",
+                prayer: "Grant, Almighty God, that as thou hast been pleased to choose us to be thy peculiar people, and hast adopted us as thine inheritance, - O grant, that we may so regard thy paternal favour towards us, as to surrender ourselves wholly to thee, and to serve thee with all the faculties of our souls, and all the members of our bodies."
+            },
+            {
+                tradition: "Celtic/Presbyterian",
+                author: "Scottish Gaelic Blessing",
+                prayer: "Deep peace of the running wave to you,<br>Deep peace of the flowing air to you,<br>Deep peace of the quiet earth to you,<br>Deep peace of the shining stars to you,<br>Deep peace of the Son of Peace to you."
+            },
+            {
+                tradition: "Reformed",
+                author: "John Knox",
+                prayer: "Give me, O Lord, a tender conscience; a conversation discreet and holy; peace with all men and a contented mind."
+            }
+        ];
+
+        // Celtic Blessings
+        const celticBlessings = [
+            "May the road rise up to meet you.<br>May the wind be always at your back.<br>May the sun shine warm upon your face,<br>The rains fall soft upon your fields.<br>And until we meet again,<br>May God hold you in the palm of His hand.",
+            
+            "May God bless you with a restless discomfort about easy answers, half-truths and superficial relationships, so that you may seek truth boldly and love deep within your heart.",
+            
+            "The blessing of God,<br>The eternal goodwill of God,<br>The shalom of God,<br>The wildness and the warmth of God,<br>Be among us and between us,<br>Now and always.",
+            
+            "May the Light of lights come<br>To my dark heart from Thy place;<br>May the Spirit's wisdom come<br>To my heart's tablet from my Saviour.",
+            
+            "Be the eye of God dwelling with you,<br>The foot of Christ in guidance with you,<br>The shower of the Spirit pouring on you,<br>Richly and generously."
+        ];
+
+        // Lectio Divina passages - short contemplative texts
+        const lectioPassages = [
+            'Psalm 46:10',
+            'Psalm 23',
+            'Psalm 139:1-6',
+            'John 15:1-5',
+            'Matthew 6:25-34',
+            'Romans 8:35-39',
+            '1 John 4:7-12',
+            'Philippians 4:4-7',
+            'Isaiah 40:28-31',
+            'John 14:27',
+            'Matthew 11:28-30',
+            'Psalm 62:1-8',
+            'Colossians 3:12-17',
+            'Ephesians 3:14-19'
+        ];
 
         const embeddedScripture = {
             'Jeremiah 33:14-16': `<span class="verse-number">14</span>The days are surely coming, says the Lord, when I will fulfill the promise I made to the house of Israel and the house of Judah. <span class="verse-number">15</span>In those days and at that time I will cause a righteous Branch to spring up for David; and he shall execute justice and righteousness in the land. <span class="verse-number">16</span>In those days Judah will be saved and Jerusalem will live in safety. And this is the name by which it will be called: "The Lord is our righteousness."`,
@@ -1038,6 +1234,41 @@
             artLink.href = artData.url;
         }
 
+        function loadContemplativePrayers() {
+            const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+            
+            // Select prayers based on day of year
+            const mysticPrayer = mysticPrayers[dayOfYear % mysticPrayers.length];
+            const celticBlessing = celticBlessings[dayOfYear % celticBlessings.length];
+            const lectioPassage = lectioPassages[dayOfYear % lectioPassages.length];
+            
+            // Load daily mystic prayer
+            document.getElementById('daily-mystic-prayer').innerHTML = `
+                <div class="canticle-title">${mysticPrayer.author} (${mysticPrayer.tradition})</div>
+                <p>${mysticPrayer.prayer}</p>
+            `;
+            
+            // Load Celtic blessing
+            document.getElementById('celtic-blessing').innerHTML = `
+                <div class="canticle-title">Celtic Blessing</div>
+                <p>${celticBlessing}</p>
+            `;
+            
+            // Load Lectio Divina passage
+            loadLectioPassage(lectioPassage);
+        }
+
+        async function loadLectioPassage(reference) {
+            const reading = await fetchScripture(reference);
+            document.getElementById('lectio-passage').innerHTML = `
+                <div class="reading-reference">${reading.reference}</div>
+                <div class="scripture-text">${reading.text}</div>
+                <div class="instruction" style="margin-top: 15px;">
+                    Read this passage slowly four times, once for each movement of Lectio Divina
+                </div>
+            `;
+        }
+
         async function initializePage() {
             const today = new Date();
             const season = getCurrentSeason();
@@ -1060,6 +1291,7 @@
             document.getElementById('lectionary-info').textContent = 'Revised Common Lectionary - Year C';
 
             loadDailyArt();
+            loadContemplativePrayers();
 
             // Auto-select office based on time of day
             const timeOfDay = getTimeOfDay();
@@ -1090,7 +1322,8 @@
                 'morning': document.querySelector('.morning'),
                 'midday': document.querySelector('.midday'),
                 'evening': document.querySelector('.evening'),
-                'night': document.querySelector('.night')
+                'night': document.querySelector('.night'),
+                'contemplative': document.querySelector('.contemplative')
             };
             
             if (buttons[office]) {
