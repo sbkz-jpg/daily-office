@@ -18,68 +18,62 @@
 
         body {
             font-family: 'Georgia', serif;
-            background: #f5f1e8;
-            color: #2d3748;
-            line-height: 1.6;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #1a202c;
-                color: #e2e8f0;
-            }
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
-        header {
-            background: linear-gradient(135deg, #8B7355 0%, #A0826D 100%);
-            color: #f5f1e8;
-            padding: 30px 20px;
+        .header {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            font-size: 2rem;
-            font-weight: normal;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+        .header h1 {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
         }
 
-        .subtitle {
-            font-size: 0.9rem;
+        .liturgical-info {
+            font-size: 0.8rem;
             opacity: 0.9;
-            font-style: italic;
+            margin-top: 6px;
         }
 
-        .art-container {
+        .season-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 6px;
+            font-weight: bold;
+        }
+
+        .daily-art-container {
             width: 100%;
             height: 300px;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #f7fafc 0%, #edf2f7 100%);
+            border-bottom: 3px solid #e2e8f0;
             overflow: hidden;
             position: relative;
-            background: #e2d5c4;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .art-container {
-                background: #2d3748;
-            }
         }
 
         #art-link {
             display: block;
             width: 100%;
             height: 100%;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        #art-link:hover {
-            transform: scale(1.05);
         }
 
         .daily-art {
@@ -87,63 +81,63 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            transition: transform 0.3s;
         }
 
-        nav {
-            background: white;
-            padding: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            nav {
-                background: #2d3748;
-            }
+        .daily-art:hover {
+            transform: scale(1.05);
         }
 
         .nav-buttons {
             display: flex;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            background: #f7fafc;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .nav-btn {
-            flex: 1;
-            min-width: 120px;
-            padding: 15px 10px;
+            padding: 12px 24px;
             border: none;
-            background: transparent;
+            border-radius: 8px;
+            font-size: 0.95rem;
             cursor: pointer;
-            font-size: 0.9rem;
-            font-family: 'Georgia', serif;
             transition: all 0.3s;
-            border-bottom: 3px solid transparent;
+            font-weight: 500;
         }
 
-        .nav-btn.morning { background: #fef3c7; }
-        .nav-btn.midday { background: #fde68a; }
-        .nav-btn.evening { background: #fcd34d; }
-        .nav-btn.night { background: #a78bfa; }
-        .nav-btn.contemplative { background: #f3e8ff; }
-
-        @media (prefers-color-scheme: dark) {
-            .nav-btn.morning { background: #78350f; color: #fef3c7; }
-            .nav-btn.midday { background: #92400e; color: #fde68a; }
-            .nav-btn.evening { background: #b45309; color: #fcd34d; }
-            .nav-btn.night { background: #5b21b6; color: #e9d5ff; }
-            .nav-btn.contemplative { background: #6b21a8; color: #f3e8ff; }
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .nav-btn.active {
-            border-bottom-color: #8B7355;
-            font-weight: bold;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        .morning { background: #fef3c7; color: #92400e; }
+        .morning.active { background: #fbbf24; }
+
+        .midday { background: #dbeafe; color: #1e40af; }
+        .midday.active { background: #60a5fa; }
+
+        .evening { background: #fce7f3; color: #9f1239; }
+        .evening.active { background: #f472b6; }
+
+        .night { background: #e0e7ff; color: #3730a3; }
+        .night.active { background: #818cf8; }
+
+        .contemplative { background: #f3e8ff; color: #6b21a8; }
+        .contemplative.active { background: #a78bfa; }
+
         .content {
-            padding: 30px 20px;
+            padding: 30px;
         }
 
         .office-section {
@@ -152,523 +146,1023 @@
 
         .office-section.active {
             display: block;
+            animation: fadeIn 0.5s;
         }
 
-        .prayer-section {
-            margin-bottom: 30px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin: 25px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
         }
 
         .prayer-text {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .prayer-text {
-                background: #2d3748;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            }
-        }
-
-        .prayer-text strong {
-            display: block;
-            color: #8B7355;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .prayer-text strong {
-                color: #d4a574;
-            }
-        }
-
-        .prayer-text p {
-            margin-bottom: 10px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin: 15px 0;
+            font-size: 1.05rem;
         }
 
         .response {
             font-style: italic;
             margin-left: 20px;
+            color: #718096;
         }
 
-        .canticle {
-            font-style: italic;
-            padding-left: 20px;
-            border-left: 3px solid #8B7355;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .canticle {
-                border-left-color: #d4a574;
-                color: #e2e8f0;
-            }
-            
-            .canticle p {
-                color: #e2e8f0;
-            }
+        .psalm {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
         }
 
         .scripture-reading {
-            background: #fef3c7;
+            background: #fffbeb;
             padding: 20px;
             border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .reading-reference {
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .scripture-text {
+            line-height: 1.8;
+            margin-top: 10px;
+            color: #1a202c;
+        }
+
+        .verse-number {
+            font-size: 0.8rem;
+            vertical-align: super;
+            color: #718096;
+            margin-right: 3px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #718096;
             font-style: italic;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .scripture-reading {
-                background: #78350f;
-                color: #fef3c7;
-            }
+        .silence-note {
+            text-align: center;
+            font-style: italic;
+            color: #718096;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin: 15px 0;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem;
+        .canticle {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .canticle-title {
+            font-weight: bold;
+            font-style: normal;
+            margin-bottom: 10px;
+            color: #92400e;
+        }
+
+        .instruction {
+            color: #e53e3e;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .error {
+            background: #fed7d7;
+            border-left: 4px solid #e53e3e;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            color: #742a2a;
+        }
+
+        /* DARK MODE */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             }
-            
-            .nav-btn {
-                font-size: 0.85rem;
-                padding: 12px 8px;
-                min-width: 100px;
+
+            .container {
+                background: #2d3748;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #1a202c 0%, #0d1117 100%);
+            }
+
+            .daily-art-container {
+                background: linear-gradient(to bottom, #374151 0%, #2d3748 100%);
+                border-bottom: 3px solid #4a5568;
+            }
+
+            .nav-buttons {
+                background: #1f2937;
+                border-bottom: 1px solid #374151;
+            }
+
+            .content {
+                background: #2d3748;
+            }
+
+            .section-title {
+                color: #e2e8f0;
+                border-bottom: 2px solid #4a5568;
+            }
+
+            .prayer-text {
+                color: #cbd5e0;
+            }
+
+            .response {
+                color: #a0aec0;
+            }
+
+            .psalm {
+                background: #374151;
+                border-left: 4px solid #818cf8;
+            }
+
+            .scripture-reading {
+                background: #374151;
+                border-left: 4px solid #fbbf24;
+            }
+
+            .reading-reference {
+                color: #fbbf24;
+            }
+
+            .scripture-text {
+                color: #e2e8f0;
+            }
+
+            .verse-number {
+                color: #9ca3af;
+            }
+
+            .loading {
+                color: #9ca3af;
+            }
+
+            .silence-note {
+                color: #a0aec0;
+                background: #374151;
+            }
+
+            .canticle {
+                background: #374151;
+                color: #e2e8f0;
+            }
+
+            .canticle p {
+                color: #e2e8f0;
+            }
+
+            .canticle-title {
+                color: #fbbf24;
+            }
+
+            .instruction {
+                color: #fbbf24;
+            }
+
+            .error {
+                background: #7f1d1d;
+                border-left: 4px solid #dc2626;
+                color: #fca5a5;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Daily Office</h1>
-            <p class="subtitle">Presbyterian Church (USA) • Book of Common Worship</p>
-        </header>
+        <div class="header">
+            <div class="header-content">
+                <h1>Daily Office</h1>
+                <div class="liturgical-info">
+                    <div id="current-date"></div>
+                    <div class="season-badge" id="season-badge"></div>
+                    <div id="lectionary-info"></div>
+                </div>
+            </div>
+        </div>
 
-        <div class="art-container">
-            <a id="art-link" href="#" target="_blank">
-                <img id="daily-art" class="daily-art" src="" alt="Sacred Art">
+        <div class="daily-art-container">
+            <a id="art-link" href="" target="_blank" style="display: inline-block; cursor: pointer;">
+                <img id="daily-art" class="daily-art" src="" alt="Daily meditation art">
             </a>
         </div>
 
-        <nav>
-            <div class="nav-buttons">
-                <button class="nav-btn morning" onclick="showOffice('morning')">Morning Prayer</button>
-                <button class="nav-btn midday" onclick="showOffice('midday')">Midday Prayer</button>
-                <button class="nav-btn evening" onclick="showOffice('evening')">Evening Prayer</button>
-                <button class="nav-btn night" onclick="showOffice('night')">Night Prayer</button>
-                <button class="nav-btn contemplative" onclick="showOffice('contemplative')">Contemplative</button>
-            </div>
-        </nav>
+        <div class="nav-buttons">
+            <button class="nav-btn morning active" onclick="showOffice('morning')">Morning Prayer</button>
+            <button class="nav-btn midday" onclick="showOffice('midday')">Midday Prayer</button>
+            <button class="nav-btn evening" onclick="showOffice('evening')">Evening Prayer</button>
+            <button class="nav-btn night" onclick="showOffice('night')">Night Prayer</button>
+            <button class="nav-btn contemplative" onclick="showOffice('contemplative')">Contemplative</button>
+        </div>
 
         <div class="content">
-            <!-- Morning Prayer -->
+            <!-- MORNING PRAYER -->
             <div id="morning" class="office-section active">
-                <div class="prayer-section">
-                    <div class="prayer-text">
-                        <strong>Opening</strong>
-                        <p>O Lord, open my lips.</p>
-                        <p class="response">And my mouth shall proclaim your praise.</p>
-                    </div>
+                <h2 class="section-title">Morning Prayer</h2>
+                
+                <div class="prayer-text">
+                    <strong>Opening Sentence</strong>
+                    <p id="morning-opening"></p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Morning Psalm</strong>
-                        <div class="canticle" id="morning-psalm">
-                            <p>Loading psalm...</p>
-                        </div>
-                    </div>
+                <div class="prayer-text">
+                    <strong>Call to Worship</strong>
+                    <p>O Lord, open my lips.</p>
+                    <p class="response">And my mouth shall proclaim your praise.</p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Scripture Reading</strong>
-                        <div id="morning-reading" class="scripture-reading">
-                            <p>Loading today's reading...</p>
-                        </div>
+                <div class="prayer-text">
+                    <strong>Morning Psalm</strong>
+                    <div class="psalm" id="morning-psalm-container">
+                        <div class="loading">Loading psalm...</div>
                     </div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Prayers of the People</strong>
-                        <p>Let us pray for the world and for the church...</p>
-                        <p>(Offer your own prayers)</p>
-                    </div>
+                <div class="prayer-text">
+                    <strong>Prayer for Illumination</strong>
+                    <p>Lord, open our hearts and minds by the power of your Holy Spirit, that as the Scriptures are read and your Word is proclaimed, we may hear with joy what you say to us today. Amen.</p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>The Lord's Prayer</strong>
-                        <p>Our Father in heaven, hallowed be your name, your kingdom come, your will be done, on earth as in heaven. Give us today our daily bread. Forgive us our sins as we forgive those who sin against us. Save us from the time of trial and deliver us from evil. For the kingdom, the power, and the glory are yours now and forever. Amen.</p>
-                    </div>
+                <div class="scripture-reading" id="morning-ot-reading">
+                    <div class="loading">Loading Old Testament reading...</div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Blessing</strong>
-                        <p>The Lord bless you and keep you; the Lord make his face to shine upon you and be gracious to you; the Lord lift up his countenance upon you and give you peace.</p>
-                        <p class="response">Amen.</p>
-                    </div>
+                <div class="scripture-reading" id="morning-epistle-reading">
+                    <div class="loading">Loading Epistle reading...</div>
+                </div>
+
+                <div class="scripture-reading" id="morning-gospel-reading">
+                    <div class="loading">Loading Gospel reading...</div>
+                </div>
+
+                <div class="silence-note">
+                    A time of silence for reflection
+                </div>
+
+                <div class="canticle" id="morning-canticle">
+                    <div class="canticle-title">Canticle: Song of Zechariah (Luke 1:68-79)</div>
+                    <p>Blessed be the Lord, the God of Israel;<br>
+                    he has come to his people and set them free.<br>
+                    He has raised up for us a mighty savior,<br>
+                    born of the house of his servant David.<br><br>
+                    Through his holy prophets he promised of old,<br>
+                    that he would save us from our enemies,<br>
+                    from the hands of all who hate us.<br><br>
+                    He promised to show mercy to our fathers<br>
+                    and to remember his holy covenant.<br>
+                    This was the oath he swore to our father Abraham,<br>
+                    to set us free from the hands of our enemies,<br>
+                    free to worship him without fear,<br>
+                    holy and righteous in his sight all the days of our life.</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Prayers of the People</strong>
+                    <p>Let us pray for the church, the world, and all in need...</p>
+                    <div class="silence-note">Offer your prayers and intercessions</div>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>The Lord's Prayer</strong>
+                    <p>Our Father in heaven, hallowed be your name,<br>
+                    your kingdom come, your will be done, on earth as in heaven.<br>
+                    Give us today our daily bread.<br>
+                    Forgive us our sins as we forgive those who sin against us.<br>
+                    Save us from the time of trial and deliver us from evil.<br>
+                    For the kingdom, the power, and the glory are yours now and forever. Amen.</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Dismissal</strong>
+                    <p>Let us bless the Lord.</p>
+                    <p class="response">Thanks be to God.</p>
                 </div>
             </div>
 
-            <!-- Midday Prayer -->
+            <!-- MIDDAY PRAYER -->
             <div id="midday" class="office-section">
-                <div class="prayer-section">
-                    <div class="prayer-text">
-                        <strong>Opening</strong>
-                        <p>O God, come to my assistance.</p>
-                        <p class="response">O Lord, make haste to help me.</p>
-                    </div>
+                <h2 class="section-title">Midday Prayer</h2>
+                
+                <div class="prayer-text">
+                    <strong>Opening</strong>
+                    <p>O God, come to my assistance.</p>
+                    <p class="response">O Lord, hasten to help me.</p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Midday Psalm - Psalm 113</strong>
-                        <div class="canticle">
-                            <p>Praise the LORD! Praise, O servants of the LORD; praise the name of the LORD.</p>
-                            <p>Blessed be the name of the LORD from this time on and forevermore.</p>
-                            <p>From the rising of the sun to its setting the name of the LORD is to be praised.</p>
-                        </div>
-                    </div>
+                <div class="psalm" id="midday-psalm-container">
+                    <div class="loading">Loading psalm...</div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Prayer</strong>
-                        <p>Gracious God, by the power of your Holy Spirit, strengthen us for service in your name. In the tasks of this day, may we find meaning; in our concerns, your peace; in our relationships, your love. Through Jesus Christ our Lord.</p>
-                        <p class="response">Amen.</p>
-                    </div>
+                <div class="scripture-reading" id="midday-reading">
+                    <div class="loading">Loading Scripture reading...</div>
+                </div>
+
+                <div class="canticle" id="midday-canticle">
+                    <div class="canticle-title">Short Canticle</div>
+                    <p>Behold, God is my salvation;<br>
+                    I will trust, and will not be afraid;<br>
+                    for the Lord God is my strength and my song,<br>
+                    and he has become my salvation. - Isaiah 12:2</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Midday Prayer</strong>
+                    <p>Gracious God, by the power of your Spirit renew us this day, that we may continue to grow in faith and be strengthened to do your will; through Jesus Christ our Lord. Amen.</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Dismissal</strong>
+                    <p>Let us bless the Lord.</p>
+                    <p class="response">Thanks be to God.</p>
                 </div>
             </div>
 
-            <!-- Evening Prayer -->
+            <!-- EVENING PRAYER -->
             <div id="evening" class="office-section">
-                <div class="prayer-section">
-                    <div class="prayer-text">
-                        <strong>Opening</strong>
-                        <p>O God, come to my assistance.</p>
-                        <p class="response">O Lord, make haste to help me.</p>
-                    </div>
+                <h2 class="section-title">Evening Prayer</h2>
+                
+                <div class="prayer-text">
+                    <strong>Opening Sentence</strong>
+                    <p id="evening-opening"></p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Evening Psalm - Psalm 141</strong>
-                        <div class="canticle" id="evening-psalm">
-                            <p>Let my prayer be counted as incense before you, and the lifting up of my hands as an evening sacrifice.</p>
-                            <p>Set a guard over my mouth, O LORD; keep watch over the door of my lips.</p>
-                            <p>But my eyes are turned toward you, O God, my Lord; in you I seek refuge.</p>
-                        </div>
-                    </div>
+                <div class="prayer-text">
+                    <strong>Evening Thanksgiving</strong>
+                    <p>Light and peace in Jesus Christ our Lord.</p>
+                    <p class="response">Thanks be to God.</p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Scripture Reading</strong>
-                        <div id="evening-reading" class="scripture-reading">
-                            <p>Loading today's reading...</p>
-                        </div>
+                <div class="prayer-text">
+                    <strong>Evening Psalm</strong>
+                    <div class="psalm" id="evening-psalm-container">
+                        <div class="loading">Loading psalm...</div>
                     </div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Prayers of Thanksgiving</strong>
-                        <p>For the blessings of this day...</p>
-                        <p>(Offer your own prayers of thanksgiving)</p>
-                    </div>
+                <div class="scripture-reading" id="evening-reading">
+                    <div class="loading">Loading Scripture reading...</div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>The Lord's Prayer</strong>
-                        <p>Our Father in heaven, hallowed be your name, your kingdom come, your will be done, on earth as in heaven. Give us today our daily bread. Forgive us our sins as we forgive those who sin against us. Save us from the time of trial and deliver us from evil. For the kingdom, the power, and the glory are yours now and forever. Amen.</p>
-                    </div>
+                <div class="silence-note">
+                    A time of silence for reflection
+                </div>
+
+                <div class="canticle" id="evening-canticle">
+                    <div class="canticle-title">Canticle: Song of Mary (Luke 1:46-55)</div>
+                    <p>My soul proclaims the greatness of the Lord,<br>
+                    my spirit rejoices in God my Savior,<br>
+                    for he has looked with favor on his lowly servant.<br><br>
+                    From this day all generations will call me blessed:<br>
+                    the Almighty has done great things for me and holy is his name.<br>
+                    He has mercy on those who fear him in every generation.<br><br>
+                    He has shown the strength of his arm,<br>
+                    he has scattered the proud in their conceit.<br>
+                    He has cast down the mighty from their thrones,<br>
+                    and has lifted up the lowly.<br><br>
+                    He has filled the hungry with good things,<br>
+                    and the rich he has sent away empty.<br>
+                    He has come to the help of his servant Israel,<br>
+                    for he has remembered his promise of mercy.</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Prayers of Thanksgiving and Intercession</strong>
+                    <div class="silence-note">Offer prayers of thanks and intercession</div>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>The Lord's Prayer</strong>
+                    <p>Our Father in heaven, hallowed be your name,<br>
+                    your kingdom come, your will be done, on earth as in heaven.<br>
+                    Give us today our daily bread.<br>
+                    Forgive us our sins as we forgive those who sin against us.<br>
+                    Save us from the time of trial and deliver us from evil.<br>
+                    For the kingdom, the power, and the glory are yours now and forever. Amen.</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Dismissal</strong>
+                    <p>Let us bless the Lord.</p>
+                    <p class="response">Thanks be to God.</p>
                 </div>
             </div>
 
-            <!-- Night Prayer (Compline) -->
+            <!-- NIGHT PRAYER -->
             <div id="night" class="office-section">
-                <div class="prayer-section">
-                    <div class="prayer-text">
-                        <strong>Opening</strong>
-                        <p>The Lord Almighty grant us a peaceful night and a perfect end.</p>
-                        <p class="response">Amen.</p>
-                    </div>
+                <h2 class="section-title">Night Prayer (Compline)</h2>
+                
+                <div class="prayer-text">
+                    <strong>Opening</strong>
+                    <p>The Lord Almighty grant us a peaceful night and a perfect end.</p>
+                    <p class="response">Amen.</p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Night Psalm - Psalm 134</strong>
-                        <div class="canticle">
-                            <p>Come, bless the LORD, all you servants of the LORD, who stand by night in the house of the LORD!</p>
-                            <p>Lift up your hands to the holy place, and bless the LORD.</p>
-                            <p>May the LORD, maker of heaven and earth, bless you from Zion.</p>
-                        </div>
-                    </div>
+                <div class="prayer-text">
+                    <strong>Confession</strong>
+                    <p>Let us confess our sins against God and our neighbor.</p>
+                    <div class="silence-note">Silent confession</div>
+                    <p>Most merciful God, we confess that we have sinned against you in thought, word, and deed, by what we have done, and by what we have left undone. We have not loved you with our whole heart; we have not loved our neighbors as ourselves. We are truly sorry and we humbly repent. For the sake of your Son Jesus Christ, have mercy on us and forgive us; that we may delight in your will, and walk in your ways, to the glory of your name. Amen.</p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Prayer</strong>
-                        <p>Be present, O merciful God, and protect us through the hours of this night, so that we who are wearied by the changes and chances of this life may rest in your eternal changelessness; through Jesus Christ our Lord.</p>
-                        <p class="response">Amen.</p>
-                    </div>
+                <div class="psalm" id="night-psalm-container">
+                    <div class="loading">Loading psalm...</div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Song of Simeon</strong>
-                        <div class="canticle">
-                            <p>Lord, now let your servant go in peace; your word has been fulfilled.</p>
-                            <p>My own eyes have seen the salvation which you have prepared in the sight of every people:</p>
-                            <p>A light to reveal you to the nations and the glory of your people Israel.</p>
-                        </div>
-                    </div>
+                <div class="scripture-reading" id="night-reading">
+                    <div class="reading-reference">Night Reading</div>
+                    <div class="scripture-text">"You, O Lord, are in the midst of us, and we are called by your name; do not forsake us!" - Jeremiah 14:9</div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Blessing</strong>
-                        <p>May the Lord grant us a quiet night and peace at the last.</p>
-                        <p class="response">Amen.</p>
-                    </div>
+                <div class="canticle" id="night-canticle">
+                    <div class="canticle-title">Canticle: Song of Simeon (Luke 2:29-32)</div>
+                    <p>Lord, now let your servant go in peace;<br>
+                    your word has been fulfilled.<br><br>
+                    My own eyes have seen the salvation<br>
+                    which you have prepared in the sight of every people:<br><br>
+                    A light to reveal you to the nations<br>
+                    and the glory of your people Israel.</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Collect</strong>
+                    <p>Be present, O merciful God, and protect us through the hours of this night, so that we who are wearied by the changes and chances of this life may rest in your eternal changelessness; through Jesus Christ our Lord. Amen.</p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Blessing</strong>
+                    <p>The almighty and merciful Lord, Father, Son, and Holy Spirit, bless us and keep us. Amen.</p>
                 </div>
             </div>
 
-            <!-- Contemplative Office -->
+            <!-- CONTEMPLATIVE PRAYER -->
             <div id="contemplative" class="office-section">
-                <div class="prayer-section">
-                    <div class="prayer-text">
-                        <strong>Centering</strong>
-                        <div class="canticle">
-                            <p>Be still, and know that I am God.</p>
-                            <p style="text-align: right; margin-top: 10px;">— Psalm 46:10</p>
-                        </div>
-                    </div>
+                <h2 class="section-title">Contemplative Prayer</h2>
+                
+                <div class="prayer-text">
+                    <strong>Opening</strong>
+                    <p>Be still, and know that I am God.</p>
+                    <p class="response">- Psalm 46:10</p>
+                </div>
 
-                    <div class="prayer-text" id="mystic-prayer-container">
-                        <strong>Prayer from the Christian Mystics</strong>
-                        <div class="canticle">
-                            <p id="daily-mystic-prayer">Loading prayer...</p>
-                        </div>
-                    </div>
+                <div class="silence-note">
+                    Take a few deep breaths and center yourself in God's presence
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Silence</strong>
-                        <p>Take a few moments in silence, opening yourself to God's presence...</p>
-                    </div>
+                <div class="canticle" id="daily-mystic-prayer">
+                    <div class="loading">Loading today's contemplative prayer...</div>
+                </div>
 
-                    <div class="prayer-text" id="celtic-blessing-container">
-                        <strong>Celtic Blessing</strong>
-                        <div class="canticle">
-                            <p id="daily-celtic-blessing">Loading blessing...</p>
-                        </div>
-                    </div>
+                <div class="silence-note" style="padding: 30px;">
+                    <p style="margin-bottom: 10px; font-size: 1.1rem;">Now enter into silence...</p>
+                    <p style="font-size: 0.9rem;">Spend time with God in wordless prayer</p>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>The Jesus Prayer</strong>
-                        <p style="font-style: italic; text-align: center; padding: 20px; font-size: 1.1rem;">
-                            Lord Jesus Christ, Son of God,<br>
-                            have mercy on me, a sinner.
-                        </p>
-                        <p style="text-align: center; font-size: 0.9rem; color: #718096;">
-                            (Repeat slowly, synchronizing with your breath)
-                        </p>
-                    </div>
+                <div class="canticle" id="celtic-blessing">
+                    <div class="loading">Loading Celtic blessing...</div>
+                </div>
 
-                    <div class="prayer-text">
-                        <strong>Closing</strong>
-                        <p>May the peace of Christ dwell in your heart.</p>
-                        <p class="response">Amen.</p>
-                    </div>
+                <div class="prayer-text">
+                    <strong>The Jesus Prayer</strong>
+                    <p style="font-style: italic; text-align: center; padding: 20px; font-size: 1.1rem;">
+                        Lord Jesus Christ, Son of God,<br>
+                        have mercy on me, a sinner.
+                    </p>
+                    <p style="text-align: center; font-size: 0.9rem; color: #718096;">
+                        (Repeat slowly, synchronizing with your breath)
+                    </p>
+                </div>
+
+                <div class="prayer-text">
+                    <strong>Closing</strong>
+                    <p>May the peace of Christ dwell in your heart.</p>
+                    <p class="response">Amen.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Revised Common Lectionary Data (basic structure)
+        // Revised Common Lectionary Data (Year C - 2025)
         const lectionary2025 = {
             '2025-11-30': { 
                 ot: 'Jeremiah 33:14-16',
                 psalm: '25:1-10',
                 epistle: '1 Thessalonians 3:9-13',
-                gospel: 'Luke 21:25-36'
+                gospel: 'Luke 21:25-36',
+                theme: 'advent_hope'
+            },
+            '2025-12-07': { 
+                ot: 'Malachi 3:1-4',
+                psalm: 'Luke 1:68-79',
+                epistle: 'Philippians 1:3-11',
+                gospel: 'Luke 3:1-6',
+                theme: 'advent_preparation'
+            },
+            '2025-12-14': { 
+                ot: 'Zephaniah 3:14-20',
+                psalm: 'Isaiah 12:2-6',
+                epistle: 'Philippians 4:4-7',
+                gospel: 'Luke 3:7-18',
+                theme: 'advent_joy'
+            },
+            '2025-12-21': { 
+                ot: 'Micah 5:2-5a',
+                psalm: 'Luke 1:46-55',
+                epistle: 'Hebrews 10:5-10',
+                gospel: 'Luke 1:39-45',
+                theme: 'advent_visitation'
+            },
+            '2025-12-25': {
+                ot: 'Isaiah 52:7-10',
+                psalm: '98',
+                epistle: 'Hebrews 1:1-4',
+                gospel: 'John 1:1-14',
+                theme: 'christmas_nativity'
+            },
+            'default': {
+                ot: 'Jeremiah 33:14-16',
+                psalm: '25:1-10',
+                epistle: '1 Thessalonians 3:9-13',
+                gospel: 'Luke 21:25-36',
+                theme: 'ordinary_faithfulness'
             }
         };
 
-        // Art collections organized by time and season (7 images per category = 84 total)
+        // Enhanced art collections organized by time of day and liturgical season
         const artByTimeAndSeason = {
             morning: {
                 advent: [
-                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain sunrise
+                    { url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80' }, // Morning landscape
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Annunciation
+                    { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' }, // Scottish Highlands dawn
+                    { url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80' }, // Misty morning
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity icon
+                    { url: 'https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=800&q=80' }  // Morning light
                 ],
                 christmas: [
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1483982258113-b72862e6cff6?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?w=800&q=80' }
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=80' }, // Winter morning
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Adoration
+                    { url: 'https://images.unsplash.com/photo-1483982258113-b72862e6cff6?w=800&q=80' }, // Snowy morning
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' }, // Madonna
+                    { url: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?w=800&q=80' }, // Winter sunrise
+                    { url: 'https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?w=800&q=80' }  // Frosty dawn
                 ],
                 ordinary: [
-                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain sunrise
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Rembrandt
+                    { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' }, // Scottish morning
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity
+                    { url: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80' }, // Green hills dawn
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Annunciation
+                    { url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80' }  // Peaceful morning
                 ]
             },
             midday: {
                 advent: [
-                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1504392022767-a8fc0771f239?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' }, // Edinburgh
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Fra Angelico
+                    { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80' }, // Scottish loch
+                    { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' }, // Isle of Skye
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DP345983.jpg' }, // El Greco
+                    { url: 'https://images.unsplash.com/photo-1504392022767-a8fc0771f239?w=800&q=80' }, // Stone church
+                    { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' }  // Scottish countryside
                 ],
                 christmas: [
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' }
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=800&q=80' }, // Snow cathedral
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Giotto
+                    { url: 'https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=800&q=80' }, // Winter church
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' }, // Botticelli
+                    { url: 'https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=800&q=80' }, // Snowy landscape
+                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' }  // Edinburgh winter
                 ],
                 ordinary: [
-                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=800&q=80' }, // Edinburgh
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Apostle Paul
+                    { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' }, // Scottish countryside
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity
+                    { url: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80' }, // Scottish loch
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Fra Angelico
+                    { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' }  // Isle of Skye
                 ]
             },
             evening: {
                 advent: [
-                    { url: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1472120435266-53107fd0c44a?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80' }, // Sunset sky
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Giotto Adoration
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain sunset
+                    { url: 'https://images.unsplash.com/photo-1472120435266-53107fd0c44a?w=800&q=80' }, // Golden hour church
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Annunciation
+                    { url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' }, // Dusk landscape
+                    { url: 'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=800&q=80' }  // Evening sky
                 ],
                 christmas: [
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80' }
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&q=80' }, // Winter evening
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Adoration
+                    { url: 'https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=800&q=80' }, // Snowy dusk
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1588.jpg' }, // Madonna
+                    { url: 'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?w=800&q=80' }, // Sunset winter
+                    { url: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80' }  // Evening glow
                 ],
                 ordinary: [
-                    { url: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80' }, // Sunset
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Rembrandt
+                    { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80' }, // Mountain dusk
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Crucifixion
+                    { url: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=80' }, // Golden landscape
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity
+                    { url: 'https://images.unsplash.com/photo-1444080748397-f442aa95c3e5?w=800&q=80' }  // Evening sky
                 ]
             },
             night: {
                 advent: [
-                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' }, // Starry night
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity icon
+                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' }, // Night sky
+                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' }, // Moonlit church
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1949.jpg' }, // Fra Angelico
+                    { url: 'https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?w=800&q=80' }, // Night landscape
+                    { url: 'https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?w=800&q=80' }  // Stars
                 ],
                 christmas: [
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' },
-                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' }
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Nativity
+                    { url: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&q=80' }, // Winter night
+                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' }, // Starry winter
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg' }, // Adoration
+                    { url: 'https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=800&q=80' }, // Snowy night
+                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' }, // Church at night
+                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' }  // Night stars
                 ],
                 ordinary: [
-                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' },
-                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' },
-                    { url: 'https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?w=800&q=80' }
+                    { url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80' }, // Starry sky
+                    { url: 'https://images.metmuseum.org/CRDImages/rl/original/DP-13759-001.jpg' }, // Trinity icon
+                    { url: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80' }, // Night sky
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1477.jpg' }, // Crucifixion
+                    { url: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=800&q=80' }, // Moonlit scene
+                    { url: 'https://images.metmuseum.org/CRDImages/ep/original/DT1965.jpg' }, // Rembrandt
+                    { url: 'https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?w=800&q=80' }  // Peaceful night
                 ]
             }
         };
 
-        // Mystic prayers and Celtic blessings
+        const liturgicalData = {
+            2025: {
+                advent: { start: '2025-11-30', end: '2025-12-24' },
+                christmas: { start: '2025-12-25', end: '2026-01-05' },
+                epiphany: { start: '2026-01-06', end: '2026-02-17' },
+                lent: { start: '2026-02-18', end: '2026-04-04' },
+                easter: { start: '2026-04-05', end: '2026-05-23' },
+                pentecost: { start: '2026-05-24', end: '2025-11-29' }
+            }
+        };
+
+        const morningPsalms = [95, 100, 63, 51, 19, 24, 84];
+        const eveningPsalms = [141, 134, 4, 139, 23, 121, 91];
+        const middayPsalms = [113, 67, 117, 119];
+        const nightPsalms = [134, 91, 4, 31];
+
+        const openingSentences = {
+            advent: "In the tender mercy of our God, the dawn from on high will break upon us. - Luke 1:78",
+            christmas: "The Word became flesh and lived among us, full of grace and truth. - John 1:14",
+            epiphany: "Nations shall come to your light, and kings to the brightness of your dawn. - Isaiah 60:3",
+            lent: "If we say that we have no sin, we deceive ourselves. If we confess our sins, God is faithful and just to forgive us. - 1 John 1:8-9",
+            easter: "This is the day that the Lord has made; let us rejoice and be glad in it. - Psalm 118:24",
+            pentecost: "I will pour out my Spirit upon all flesh, and your sons and daughters shall prophesy. - Acts 2:17",
+            ordinary: "This is the day that the Lord has made; let us rejoice and be glad in it. - Psalm 118:24"
+        };
+
+        // Prayers from Christian Mystics across traditions
         const mysticPrayers = [
-            "I am bending my knee\nIn the eye of the Father who created me,\nIn the eye of the Son who purchased me,\nIn the eye of the Spirit who cleansed me,\nIn friendship and affection.\n\n— Carmina Gadelica",
-            "Christ with me, Christ before me,\nChrist behind me, Christ in me,\nChrist beneath me, Christ above me,\nChrist on my right, Christ on my left,\nChrist when I lie down, Christ when I sit down,\nChrist when I arise.\n\n— St. Patrick's Breastplate",
-            "Lord, make me an instrument of your peace:\nWhere there is hatred, let me sow love;\nWhere there is injury, pardon;\nWhere there is doubt, faith;\nWhere there is despair, hope;\nWhere there is darkness, light;\nWhere there is sadness, joy.\n\n— St. Francis of Assisi",
-            "Let nothing disturb you,\nLet nothing frighten you,\nAll things are passing away:\nGod never changes.\nPatience obtains all things.\nWhoever has God lacks nothing;\nGod alone suffices.\n\n— St. Teresa of Avila",
-            "O living flame of love\nthat tenderly wounds my soul\nin its deepest center!\n\n— St. John of the Cross",
-            "O Lord and Master of my life,\nTake from me the spirit of sloth, despair, lust of power, and idle talk.\nBut give rather the spirit of chastity, humility, patience, and love to your servant.\n\n— St. Ephrem the Syrian",
-            "My Lord God, I have no idea where I am going.\nI do not see the road ahead of me.\nI cannot know for certain where it will end.\nBut I believe that the desire to please you does in fact please you.\nAnd I hope I have that desire in all that I am doing.\n\n— Thomas Merton",
-            "Thanks to Thee ever, O gentle Christ,\nThat Thou has raised me freely from the black\nAnd from the darkness of last night\nTo the kindly light of this day.\n\n— Carmina Gadelica",
-            "Be Thou a bright flame before me,\nBe Thou a guiding star above me,\nBe Thou a smooth path below me,\nBe Thou a kindly shepherd behind me,\nToday, tonight, and forever.\n\n— St. Columba",
-            "Lord, with what care hast Thou begirt us round!\nParents first season us; then schoolmasters\nDeliver us to laws; they send us bound\nTo rules of reason, holy messengers,\nPulpits and Sundays, sorrow dogging sin,\nAfflictions sorted, anguish of all sizes,\nFine nets and stratagems to catch us in,\nBibles laid open, millions of surprises.\n\n— George Herbert",
-            "Almighty God, unto whom all hearts be open,\nAll desires known,\nAnd from whom no secrets are hid:\nCleanse the thoughts of our hearts\nBy the inspiration of thy Holy Spirit,\nThat we may perfectly love thee,\nAnd worthily magnify thy Holy Name.\n\n— Thomas Cranmer",
-            "Keep your mind in hell, and despair not.\n\n— The Philokalia",
-            "My soul is weary of itself, for it is aware of its extreme impurity.\nYet it strives towards God, and prays with tears that He may cleanse it with His grace.\n\n— St. Silouan the Athonite",
-            "Give me grace, O my Father, to be utterly ashamed of my own reluctance.\nRouse me from sloth and coldness, and make me desire you with my whole heart.\nTeach me to love meditation, sacred reading, and prayer.\nTeach me to love that which must engage my mind for all eternity.\n\n— Evelyn Underhill",
-            "Grant, Almighty God, that as thou hast been pleased to choose us to be thy peculiar people,\nWe may not be unmindful of so great a favor,\nBut consecrate ourselves wholly to thee.\n\n— John Calvin",
-            "Deep peace of the running wave to you.\nDeep peace of the flowing air to you.\nDeep peace of the quiet earth to you.\nDeep peace of the shining stars to you.\nDeep peace of the Son of Peace to you.\n\n— Scottish Gaelic Blessing",
-            "Give me, O Lord, a tender conscience;\nA conscience so enlightened and awakened that it may discern the smallest sins from the greatest,\nAnd hate them all as that which crucified the Lord of glory.\n\n— John Knox",
-            "Love is repaid by love alone.\n\n— St. Thérèse of Lisieux"
+            // Celtic - Carmina Gadelica
+            {
+                tradition: "Celtic",
+                author: "Carmina Gadelica",
+                prayer: "I am bending my knee<br>In the eye of the Father who created me,<br>In the eye of the Son who purchased me,<br>In the eye of the Spirit who cleansed me,<br>In friendship and affection.<br><br>Through Thine own Anointed One, O God,<br>Bestow upon us fullness in our need,<br>Love towards God,<br>The affection of God,<br>The smile of God,<br>The wisdom of God,<br>The grace of God,<br>The fear of God,<br>And the will of God."
+            },
+            {
+                tradition: "Celtic",
+                author: "St. Patrick's Breastplate",
+                prayer: "Christ with me, Christ before me,<br>Christ behind me, Christ in me,<br>Christ beneath me, Christ above me,<br>Christ on my right, Christ on my left,<br>Christ when I lie down, Christ when I sit down,<br>Christ when I arise,<br>Christ in the heart of every man who thinks of me,<br>Christ in the mouth of everyone who speaks of me,<br>Christ in every eye that sees me,<br>Christ in every ear that hears me."
+            },
+            {
+                tradition: "Celtic",
+                author: "Carmina Gadelica - Morning Prayer",
+                prayer: "Thanks to Thee ever, O gentle Christ,<br>That Thou hast raised me freely from the black<br>And from the darkness of last night<br>To the kindly light of this day.<br><br>Praise unto Thee, O God of all creatures,<br>According to each life Thou hast poured on me,<br>My desire, my word, my sense, my repute,<br>My thought, my deed, my way, my fame."
+            },
+            {
+                tradition: "Celtic",
+                author: "St. Columba",
+                prayer: "My dearest Lord,<br>Be Thou a bright flame before me,<br>Be Thou a guiding star above me,<br>Be Thou a smooth path beneath me,<br>Be Thou a kindly shepherd behind me,<br>Today and evermore."
+            },
+            // Catholic Mystics
+            {
+                tradition: "Catholic",
+                author: "St. Francis of Assisi",
+                prayer: "Lord, make me an instrument of your peace.<br>Where there is hatred, let me sow love;<br>Where there is injury, pardon;<br>Where there is doubt, faith;<br>Where there is despair, hope;<br>Where there is darkness, light;<br>Where there is sadness, joy."
+            },
+            {
+                tradition: "Catholic",
+                author: "St. Teresa of Avila",
+                prayer: "Let nothing disturb you,<br>Let nothing frighten you,<br>All things are passing away:<br>God never changes.<br>Patience obtains all things.<br>Whoever has God lacks nothing;<br>God alone suffices."
+            },
+            {
+                tradition: "Catholic",
+                author: "St. John of the Cross",
+                prayer: "O living flame of love<br>That tenderly wounds my soul<br>In its deepest center! Since<br>Now you are not oppressive,<br>Now consummate! if it be your will:<br>Tear through the veil of this sweet encounter!"
+            },
+            {
+                tradition: "Catholic",
+                author: "Thomas Merton",
+                prayer: "My Lord God, I have no idea where I am going. I do not see the road ahead of me. I cannot know for certain where it will end. Nor do I really know myself, and the fact that I think I am following your will does not mean that I am actually doing so. But I believe that the desire to please you does in fact please you. And I hope I have that desire in all that I am doing. I hope that I will never do anything apart from that desire. And I know that if I do this you will lead me by the right road, though I may know nothing about it. Therefore I will trust you always though I may seem to be lost and in the shadow of death. I will not fear, for you are ever with me, and you will never leave me to face my perils alone."
+            },
+            {
+                tradition: "Catholic",
+                author: "St. Thérèse of Lisieux",
+                prayer: "O Jesus, I know it, love is repaid by love alone. Therefore I searched and I found how to solace my heart by giving Thee Love for Love."
+            },
+            // Orthodox
+            {
+                tradition: "Orthodox",
+                author: "St. Ephrem the Syrian",
+                prayer: "O Lord and Master of my life,<br>Take from me the spirit of sloth, despair, lust of power, and idle talk.<br>But give rather the spirit of chastity, humility, patience, and love to Thy servant.<br>Yea, O Lord and King,<br>Grant me to see my own transgressions,<br>And not to judge my brother,<br>For blessed art Thou, unto ages of ages. Amen."
+            },
+            {
+                tradition: "Orthodox",
+                author: "The Philokalia",
+                prayer: "Keep your mind in hell, and despair not."
+            },
+            {
+                tradition: "Orthodox",
+                author: "St. Silouan the Athonite",
+                prayer: "My soul is weary of itself, for it is unprofitable. But when the Holy Spirit comes, then the soul is easily borne up by contemplation of the love of God, and forgets herself, for she is contemplating the Lord and delighting in Him."
+            },
+            // Anglican
+            {
+                tradition: "Anglican",
+                author: "George Herbert",
+                prayer: "Lord, with what care hast Thou begirt us round!<br>Parents first season us; then schoolmasters<br>Deliver us to laws; they send us bound<br>To rules of reason, holy messengers,<br>Pulpits and Sundays, sorrow dogging sin,<br>Afflictions sorted, anguish of all sizes,<br>Fine nets and stratagems to catch us in,<br>Bibles laid open, millions of surprises."
+            },
+            {
+                tradition: "Anglican",
+                author: "Thomas Cranmer",
+                prayer: "Almighty God, unto whom all hearts be open, all desires known, and from whom no secrets are hid: Cleanse the thoughts of our hearts by the inspiration of thy Holy Spirit, that we may perfectly love thee, and worthily magnify thy holy Name; through Christ our Lord. Amen."
+            },
+            {
+                tradition: "Anglican",
+                author: "Evelyn Underhill",
+                prayer: "Give me grace, O my Father, to be utterly devoted to Thee. Help me to give myself to Thee, at every moment and in all the actions of my life; to Thee and Thee only, with true inward poverty of spirit."
+            },
+            // Presbyterian/Reformed
+            {
+                tradition: "Reformed",
+                author: "John Calvin",
+                prayer: "Grant, Almighty God, that as thou hast been pleased to choose us to be thy peculiar people, and hast adopted us as thine inheritance, - O grant, that we may so regard thy paternal favour towards us, as to surrender ourselves wholly to thee, and to serve thee with all the faculties of our souls, and all the members of our bodies."
+            },
+            {
+                tradition: "Celtic/Presbyterian",
+                author: "Scottish Gaelic Blessing",
+                prayer: "Deep peace of the running wave to you,<br>Deep peace of the flowing air to you,<br>Deep peace of the quiet earth to you,<br>Deep peace of the shining stars to you,<br>Deep peace of the Son of Peace to you."
+            },
+            {
+                tradition: "Reformed",
+                author: "John Knox",
+                prayer: "Give me, O Lord, a tender conscience; a conversation discreet and holy; peace with all men and a contented mind."
+            }
         ];
 
+        // Celtic Blessings
         const celticBlessings = [
-            "May the road rise up to meet you.\nMay the wind be always at your back.\nMay the sun shine warm upon your face,\nThe rains fall soft upon your fields.\nAnd until we meet again,\nMay God hold you in the palm of His hand.",
-            "May God bless you with a restless discomfort about easy answers, half-truths and superficial relationships, so that you may seek truth boldly and love deep within your heart.\n\nMay God bless you with holy anger at injustice, oppression, and exploitation of people, so that you may tirelessly work for justice, freedom, and peace.\n\nMay God bless you with the gift of tears to shed with those who suffer from pain, rejection, starvation, or the loss of all that they cherish, so that you may reach out your hand to comfort them and transform their pain into joy.\n\nAnd may God bless you with enough foolishness to believe that you really CAN make a difference in this world, so that you are able, with God's grace, to do what others claim cannot be done.",
-            "The blessing of God,\nThe eternal goodwill of God,\nThe shalom of God,\nThe wildness and the warmth of God,\nBe among us and between us,\nNow and always.",
-            "May the Light of lights come\nTo my dark heart from Thy place;\nMay the Spirit's wisdom come\nTo my heart's tablet from my Savior.\n\nBe the peace of the Spirit mine this night,\nBe the peace of the Son mine this night,\nBe the peace of the Father mine this night,\nThe peace of all peace be mine this night,\nEach morning and evening of my life.",
-            "Be the eye of God dwelling with you,\nThe foot of Christ in guidance with you,\nThe shower of the Spirit pouring on you,\nRichly and generously."
+            "May the road rise up to meet you.<br>May the wind be always at your back.<br>May the sun shine warm upon your face,<br>The rains fall soft upon your fields.<br>And until we meet again,<br>May God hold you in the palm of His hand.",
+            
+            "May God bless you with a restless discomfort about easy answers, half-truths and superficial relationships, so that you may seek truth boldly and love deep within your heart.",
+            
+            "The blessing of God,<br>The eternal goodwill of God,<br>The shalom of God,<br>The wildness and the warmth of God,<br>Be among us and between us,<br>Now and always.",
+            
+            "May the Light of lights come<br>To my dark heart from Thy place;<br>May the Spirit's wisdom come<br>To my heart's tablet from my Saviour.",
+            
+            "Be the eye of God dwelling with you,<br>The foot of Christ in guidance with you,<br>The shower of the Spirit pouring on you,<br>Richly and generously."
         ];
+
+        const embeddedScripture = {
+            'Jeremiah 33:14-16': `<span class="verse-number">14</span>The days are surely coming, says the Lord, when I will fulfill the promise I made to the house of Israel and the house of Judah. <span class="verse-number">15</span>In those days and at that time I will cause a righteous Branch to spring up for David; and he shall execute justice and righteousness in the land. <span class="verse-number">16</span>In those days Judah will be saved and Jerusalem will live in safety. And this is the name by which it will be called: "The Lord is our righteousness."`,
+            'Psalm 25:1-10': `<span class="verse-number">1</span>To you, O Lord, I lift up my soul. <span class="verse-number">2</span>O my God, in you I trust; do not let me be put to shame; do not let my enemies exult over me. <span class="verse-number">3</span>Do not let those who wait for you be put to shame; let them be ashamed who are wantonly treacherous. <span class="verse-number">4</span>Make me to know your ways, O Lord; teach me your paths. <span class="verse-number">5</span>Lead me in your truth, and teach me, for you are the God of my salvation; for you I wait all day long. <span class="verse-number">6</span>Be mindful of your mercy, O Lord, and of your steadfast love, for they have been from of old. <span class="verse-number">7</span>Do not remember the sins of my youth or my transgressions; according to your steadfast love remember me, for your goodness' sake, O Lord! <span class="verse-number">8</span>Good and upright is the Lord; therefore he instructs sinners in the way. <span class="verse-number">9</span>He leads the humble in what is right, and teaches the humble his way. <span class="verse-number">10</span>All the paths of the Lord are steadfast love and faithfulness, for those who keep his covenant and his decrees.`,
+            '1 Thessalonians 3:9-13': `<span class="verse-number">9</span>How can we thank God enough for you in return for all the joy that we feel before our God because of you? <span class="verse-number">10</span>Night and day we pray most earnestly that we may see you face to face and restore whatever is lacking in your faith. <span class="verse-number">11</span>Now may our God and Father himself and our Lord Jesus direct our way to you. <span class="verse-number">12</span>And may the Lord make you increase and abound in love for one another and for all, just as we abound in love for you. <span class="verse-number">13</span>And may he so strengthen your hearts in holiness that you may be blameless before our God and Father at the coming of our Lord Jesus with all his saints.`,
+            'Luke 21:25-36': `<span class="verse-number">25</span>"There will be signs in the sun, the moon, and the stars, and on the earth distress among nations confused by the roaring of the sea and the waves. <span class="verse-number">26</span>People will faint from fear and foreboding of what is coming upon the world, for the powers of the heavens will be shaken. <span class="verse-number">27</span>Then they will see 'the Son of Man coming in a cloud' with power and great glory. <span class="verse-number">28</span>Now when these things begin to take place, stand up and raise your heads, because your redemption is drawing near." <span class="verse-number">29</span>Then he told them a parable: "Look at the fig tree and all the trees; <span class="verse-number">30</span>as soon as they sprout leaves you can see for yourselves and know that summer is already near. <span class="verse-number">31</span>So also, when you see these things taking place, you know that the kingdom of God is near. <span class="verse-number">32</span>Truly I tell you, this generation will not pass away until all things have taken place. <span class="verse-number">33</span>Heaven and earth will pass away, but my words will not pass away. <span class="verse-number">34</span>Be on guard so that your hearts are not weighed down with dissipation and drunkenness and the worries of this life, and that day catch you unexpectedly, <span class="verse-number">35</span>like a trap. For it will come upon all who live on the face of the whole earth. <span class="verse-number">36</span>Be alert at all times, praying that you may have the strength to escape all these things that will take place, and to stand before the Son of Man."`,
+            'Psalm 95': `<span class="verse-number">1</span>O come, let us sing to the Lord; let us make a joyful noise to the rock of our salvation! <span class="verse-number">2</span>Let us come into his presence with thanksgiving; let us make a joyful noise to him with songs of praise! <span class="verse-number">3</span>For the Lord is a great God, and a great King above all gods. <span class="verse-number">4</span>In his hand are the depths of the earth; the heights of the mountains are his also. <span class="verse-number">5</span>The sea is his, for he made it, and the dry land, which his hands have formed. <span class="verse-number">6</span>O come, let us worship and bow down, let us kneel before the Lord, our Maker! <span class="verse-number">7</span>For he is our God, and we are the people of his pasture, and the sheep of his hand.`,
+            'Psalm 141': `<span class="verse-number">1</span>I call upon you, O Lord; come quickly to me; give ear to my voice when I call to you. <span class="verse-number">2</span>Let my prayer be counted as incense before you, and the lifting up of my hands as an evening sacrifice. <span class="verse-number">3</span>Set a guard over my mouth, O Lord; keep watch over the door of my lips. <span class="verse-number">4</span>Do not turn my heart to any evil, to busy myself with wicked deeds in company with those who work iniquity; do not let me eat of their delicacies. <span class="verse-number">5</span>Let the righteous strike me; let the faithful correct me. Never let the oil of the wicked anoint my head, for my prayer is continually against their wicked deeds.`,
+            'Psalm 113': `<span class="verse-number">1</span>Praise the Lord! Praise, O servants of the Lord; praise the name of the Lord. <span class="verse-number">2</span>Blessed be the name of the Lord from this time on and forevermore. <span class="verse-number">3</span>From the rising of the sun to its setting the name of the Lord is to be praised. <span class="verse-number">4</span>The Lord is high above all nations, and his glory above the heavens. <span class="verse-number">5</span>Who is like the Lord our God, who is seated on high, <span class="verse-number">6</span>who looks far down on the heavens and the earth? <span class="verse-number">7</span>He raises the poor from the dust, and lifts the needy from the ash heap, <span class="verse-number">8</span>to make them sit with princes, with the princes of his people. <span class="verse-number">9</span>He gives the barren woman a home, making her the joyous mother of children. Praise the Lord!`,
+            'Psalm 134': `<span class="verse-number">1</span>Come, bless the Lord, all you servants of the Lord, who stand by night in the house of the Lord! <span class="verse-number">2</span>Lift up your hands to the holy place, and bless the Lord. <span class="verse-number">3</span>May the Lord, maker of heaven and earth, bless you from Zion.`
+        };
+
+        function getCurrentSeason() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const dateStr = today.toISOString().split('T')[0];
+
+            for (const [season, dates] of Object.entries(liturgicalData[year] || {})) {
+                if (dateStr >= dates.start && dateStr <= dates.end) {
+                    return season;
+                }
+            }
+            return 'ordinary';
+        }
+
+        function getSeasonColor(season) {
+            const colors = {
+                advent: '#6B46C1',
+                christmas: '#ECC94B',
+                epiphany: '#48BB78',
+                lent: '#805AD5',
+                easter: '#F6E05E',
+                pentecost: '#E53E3E',
+                ordinary: '#48BB78'
+            };
+            return colors[season] || '#48BB78';
+        }
+
+        function getTodaysLectionary() {
+            const today = new Date().toISOString().split('T')[0];
+            return lectionary2025[today] || lectionary2025['default'];
+        }
 
         function getDayOfWeek() {
             return new Date().getDay();
         }
 
-        function getTimeOfDay() {
-            const hour = new Date().getHours();
-            if (hour >= 5 && hour < 11) return 'morning';
-            if (hour >= 11 && hour < 15) return 'midday';
-            if (hour >= 15 && hour < 20) return 'evening';
-            return 'night';
+        async function fetchScripture(reference) {
+            if (embeddedScripture[reference]) {
+                return {
+                    reference: reference,
+                    text: embeddedScripture[reference],
+                    error: false
+                };
+            }
+
+            try {
+                const formattedRef = reference.replace(/\s/g, '%20');
+                const response = await fetch(`https://bible-api.com/${formattedRef}?translation=web`, {
+                    mode: 'cors'
+                });
+                
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+                
+                const data = await response.json();
+                return formatScriptureText(data, reference);
+            } catch (error) {
+                return {
+                    reference: reference,
+                    text: `<div class="instruction">Please read ${reference} from your Bible.</div>`,
+                    error: true
+                };
+            }
         }
 
-        function getCurrentSeason() {
-            const now = new Date();
-            const month = now.getMonth() + 1;
-            const day = now.getDate();
+        function formatScriptureText(data, reference) {
+            if (!data.verses || data.verses.length === 0) {
+                return {
+                    reference: reference,
+                    text: `<div class="instruction">Please read ${reference} from your Bible.</div>`,
+                    error: true
+                };
+            }
+
+            let formattedText = '';
+            data.verses.forEach(verse => {
+                const verseNum = verse.verse;
+                const verseText = verse.text.trim();
+                formattedText += `<span class="verse-number">${verseNum}</span>${verseText} `;
+            });
+
+            return {
+                reference: reference,
+                text: formattedText.trim(),
+                error: false
+            };
+        }
+
+        async function loadMorningReadings() {
+            const lectionary = getTodaysLectionary();
             
-            // Advent: Late Nov/Dec before Christmas
-            if ((month === 11 && day >= 27) || (month === 12 && day < 25)) {
-                return 'advent';
+            const otReading = await fetchScripture(lectionary.ot);
+            document.getElementById('morning-ot-reading').innerHTML = `
+                <div class="reading-reference">Old Testament: ${otReading.reference}</div>
+                <div class="scripture-text">${otReading.text}</div>
+            `;
+
+            const epistleReading = await fetchScripture(lectionary.epistle);
+            document.getElementById('morning-epistle-reading').innerHTML = `
+                <div class="reading-reference">Epistle: ${epistleReading.reference}</div>
+                <div class="scripture-text">${epistleReading.text}</div>
+            `;
+
+            const gospelReading = await fetchScripture(lectionary.gospel);
+            document.getElementById('morning-gospel-reading').innerHTML = `
+                <div class="reading-reference">Gospel: ${gospelReading.reference}</div>
+                <div class="scripture-text">${gospelReading.text}</div>
+            `;
+        }
+
+        async function loadPsalm(psalmNumber, containerId) {
+            const psalmReading = await fetchScripture(`Psalm ${psalmNumber}`);
+            const container = document.getElementById(containerId);
+            
+            if (psalmReading.error) {
+                container.innerHTML = `
+                    <strong>Psalm ${psalmNumber}</strong>
+                    <div class="instruction">Please read Psalm ${psalmNumber} from your Bible.</div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <strong>${psalmReading.reference}</strong>
+                    <div class="scripture-text">${psalmReading.text}</div>
+                `;
             }
-            // Christmas: Dec 25 - Jan 6
-            if ((month === 12 && day >= 25) || (month === 1 && day <= 6)) {
-                return 'christmas';
-            }
-            // Default to ordinary time
-            return 'ordinary';
+        }
+
+        async function loadEveningReading() {
+            const lectionary = getTodaysLectionary();
+            const reading = await fetchScripture(lectionary.ot);
+            
+            document.getElementById('evening-reading').innerHTML = `
+                <div class="reading-reference">${reading.reference}</div>
+                <div class="scripture-text">${reading.text}</div>
+            `;
+        }
+
+        async function loadMiddayReading() {
+            const lectionary = getTodaysLectionary();
+            const reading = await fetchScripture(lectionary.psalm);
+            
+            document.getElementById('midday-reading').innerHTML = `
+                <div class="reading-reference">${reading.reference}</div>
+                <div class="scripture-text">${reading.text}</div>
+            `;
+        }
+
+        function getTimeOfDay() {
+            const hour = new Date().getHours();
+            if (hour >= 5 && hour < 11) return 'morning';      // 5am-11am
+            if (hour >= 11 && hour < 15) return 'midday';      // 11am-3pm
+            if (hour >= 15 && hour < 20) return 'evening';     // 3pm-8pm
+            return 'night';                                      // 8pm-5am
         }
 
         function getSimplifiedSeason(season) {
-            return season; // advent, christmas, or ordinary
+            if (season === 'advent') return 'advent';
+            if (season === 'christmas') return 'christmas';
+            return 'ordinary'; // Default for epiphany, lent, easter, pentecost, ordinary
         }
 
-        function loadDailyArt(officeOverride = null) {
+        function loadDailyArt() {
             const season = getCurrentSeason();
             const simplifiedSeason = getSimplifiedSeason(season);
-            const timeOfDay = officeOverride || getTimeOfDay();
+            const timeOfDay = getTimeOfDay();
             const dayOfWeek = getDayOfWeek();
             
+            // Get art array for current time of day and season
             const artArray = artByTimeAndSeason[timeOfDay][simplifiedSeason];
             const artData = artArray[dayOfWeek % artArray.length];
             
             const dailyArtImg = document.getElementById('daily-art');
             const artLink = document.getElementById('art-link');
             
+            // Create fallback handler
             let attemptCount = 0;
             const fallbackImages = [
+                // Scottish Highland landscapes and religious sites
                 { url: 'https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=800&q=80' },
                 { url: 'https://images.unsplash.com/photo-1551431009-a802eeec77b1?w=800&q=80' },
                 { url: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80' },
@@ -678,40 +1172,88 @@
             
             dailyArtImg.onerror = function() {
                 attemptCount++;
+                console.log('Image load attempt ' + attemptCount + ' failed');
+                
                 if (attemptCount <= fallbackImages.length) {
+                    // Try next fallback image
                     const fallback = fallbackImages[attemptCount - 1];
+                    console.log('Trying fallback image');
                     this.src = fallback.url;
                     artLink.href = fallback.url;
+                } else {
+                    // All external sources failed - use embedded placeholder
+                    console.log('All sources failed, using text placeholder');
+                    artLink.style.pointerEvents = 'none';
+                    this.outerHTML = `
+                        <div class="daily-art" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 1rem; text-align: center; padding: 40px; flex-direction: column;">
+                            <div style="font-size: 4rem; margin-bottom: 15px;">⛪</div>
+                            <div style="font-size: 1.3rem; font-weight: bold; margin-bottom: 8px;">Daily Office</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9; max-width: 200px; line-height: 1.4;">Presbyterian Church (USA)</div>
+                        </div>
+                    `;
                 }
             };
             
+            // Try to load primary image and set link
             dailyArtImg.src = artData.url;
             artLink.href = artData.url;
         }
 
         function loadContemplativePrayers() {
             const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+            
+            // Select prayers based on day of year
             const mysticPrayer = mysticPrayers[dayOfYear % mysticPrayers.length];
             const celticBlessing = celticBlessings[dayOfYear % celticBlessings.length];
             
-            document.getElementById('daily-mystic-prayer').innerHTML = mysticPrayer.replace(/\n/g, '<br>');
-            document.getElementById('daily-celtic-blessing').innerHTML = celticBlessing.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+            // Load daily mystic prayer
+            document.getElementById('daily-mystic-prayer').innerHTML = `
+                <div class="canticle-title">${mysticPrayer.author} (${mysticPrayer.tradition})</div>
+                <p>${mysticPrayer.prayer}</p>
+            `;
+            
+            // Load Celtic blessing
+            document.getElementById('celtic-blessing').innerHTML = `
+                <div class="canticle-title">Celtic Blessing</div>
+                <p>${celticBlessing}</p>
+            `;
         }
 
-        async function loadScripture() {
-            const today = new Date().toISOString().split('T')[0];
-            const readings = lectionary2025[today];
-            
-            if (readings) {
-                document.getElementById('morning-reading').innerHTML = `
-                    <p><strong>Gospel:</strong> ${readings.gospel}</p>
-                    <p><strong>Epistle:</strong> ${readings.epistle}</p>
-                `;
-                document.getElementById('evening-reading').innerHTML = `
-                    <p><strong>Old Testament:</strong> ${readings.ot}</p>
-                    <p><strong>Psalm:</strong> ${readings.psalm}</p>
-                `;
-            }
+        async function initializePage() {
+            const today = new Date();
+            const season = getCurrentSeason();
+            const seasonColor = getSeasonColor(season);
+            const dayIndex = getDayOfWeek();
+
+            document.getElementById('current-date').textContent = today.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            const seasonBadge = document.getElementById('season-badge');
+            seasonBadge.textContent = season.charAt(0).toUpperCase() + season.slice(1);
+            seasonBadge.style.backgroundColor = seasonColor;
+
+            document.getElementById('morning-opening').textContent = openingSentences[season];
+            document.getElementById('evening-opening').textContent = openingSentences[season];
+            document.getElementById('lectionary-info').textContent = 'Revised Common Lectionary - Year C';
+
+            loadDailyArt();
+            loadContemplativePrayers();
+
+            // Auto-select office based on time of day
+            const timeOfDay = getTimeOfDay();
+            showOffice(timeOfDay);
+
+            await loadMorningReadings();
+            await loadPsalm(morningPsalms[dayIndex], 'morning-psalm-container');
+            await loadPsalm(eveningPsalms[dayIndex], 'evening-psalm-container');
+            await loadPsalm(middayPsalms[dayIndex % 4], 'midday-psalm-container');
+            await loadPsalm(nightPsalms[dayIndex % 4], 'night-psalm-container');
+            await loadEveningReading();
+            await loadMiddayReading();
         }
 
         function showOffice(office) {
@@ -725,6 +1267,7 @@
 
             document.getElementById(office).classList.add('active');
             
+            // Find and activate the correct button
             const buttons = {
                 'morning': document.querySelector('.morning'),
                 'midday': document.querySelector('.midday'),
@@ -737,23 +1280,10 @@
                 buttons[office].classList.add('active');
             }
             
-            // Reload art for the new office time
-            if (office !== 'contemplative') {
-                loadDailyArt(office);
-            }
-            
-            window.scrollTo(0, 0);
+            document.querySelector('.content').scrollTop = 0;
         }
 
-        function initializePage() {
-            loadDailyArt();
-            loadScripture();
-            loadContemplativePrayers();
-            showOffice(getTimeOfDay());
-        }
-
-        // Initialize on page load
-        window.addEventListener('DOMContentLoaded', initializePage);
+        initializePage();
     </script>
 </body>
 </html>
